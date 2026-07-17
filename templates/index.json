@@ -9,27 +9,36 @@
  */
 {
   "sections": {
-    "rich-text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Meet the latest companions",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading"
-      ],
+    "wonderfae_hero_MXQ9d9": {
+      "type": "wonderfae-hero",
+      "name": "Wonderfae hero",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 52
+        "eyebrow": "Handmade needle-felted mice",
+        "heading": "Wonderfae",
+        "heading_tag": "h1",
+        "introduction": "Handmade, one-of-a-kind mice paired with genuine antique and vintage treasures. Every companion has a name, a number, and a small story of their own.",
+        "chapter_text": "Genuine sourced objects, never reproductions",
+        "primary_button_label": "Available Companions",
+        "primary_button_link": "",
+        "secondary_button_label": "Commission Enquiry",
+        "secondary_button_link": "",
+        "image_alt": "A needle-felted mouse beside a floral teacup and dried flowers",
+        "image_caption": "Beatrice, No. 001, with her antique teacup",
+        "desktop_image_position": "right",
+        "show_divider": true,
+        "show_ornaments": true,
+        "enable_animations": true,
+        "max_width": 1240,
+        "padding_top": 72,
+        "padding_bottom": 80,
+        "background_color": "#e8dcc0",
+        "cream_color": "#f7efdd",
+        "walnut_color": "#593a28",
+        "walnut_deep_color": "#38251b",
+        "ink_color": "#382d27",
+        "ink_soft_color": "#665246",
+        "moss_color": "#657257",
+        "gold_color": "#ad8750"
       }
     },
     "featured-collection": {
@@ -126,43 +135,10 @@
         "padding_top": 0,
         "padding_bottom": 56
       }
-    },
-    "wonderfae_hero_MXQ9d9": {
-      "type": "wonderfae-hero",
-      "name": "Wonderfae hero",
-      "settings": {
-        "eyebrow": "Handmade needle-felted mice",
-        "heading": "Wonderfae",
-        "heading_tag": "h1",
-        "introduction": "Handmade, one-of-a-kind mice paired with genuine antique and vintage treasures. Every companion has a name, a number, and a small story of their own.",
-        "chapter_text": "Genuine sourced objects, never reproductions",
-        "primary_button_label": "Available Companions",
-        "primary_button_link": "",
-        "secondary_button_label": "Commission Enquiry",
-        "secondary_button_link": "",
-        "image_alt": "A needle-felted mouse beside a floral teacup and dried flowers",
-        "image_caption": "Beatrice, No. 001, with her antique teacup",
-        "desktop_image_position": "right",
-        "show_divider": true,
-        "show_ornaments": true,
-        "enable_animations": true,
-        "max_width": 1240,
-        "padding_top": 72,
-        "padding_bottom": 80,
-        "background_color": "#e8dcc0",
-        "cream_color": "#f7efdd",
-        "walnut_color": "#593a28",
-        "walnut_deep_color": "#38251b",
-        "ink_color": "#382d27",
-        "ink_soft_color": "#665246",
-        "moss_color": "#657257",
-        "gold_color": "#ad8750"
-      }
     }
   },
   "order": [
     "wonderfae_hero_MXQ9d9",
-    "rich-text",
     "featured-collection",
     "image-with-text",
     "image-with-text-1"
