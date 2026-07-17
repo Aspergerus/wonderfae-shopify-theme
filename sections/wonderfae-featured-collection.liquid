@@ -91,6 +91,8 @@
             elsif section.settings.image_ratio == 'adapt' and product.featured_media
               assign image_ratio = product.featured_media.aspect_ratio
             endif
+
+            assign product_image_alt = product.featured_media.alt | default: product.title | escape
           -%}
           <li class="wonderfae-featured-collection__item">
             <product-component view-event-payload="{{ product | standard_event_data: 'view', context: 'collection' | escape }}">
@@ -109,7 +111,7 @@
                         loading: 'lazy',
                         widths: '240, 360, 480, 640, 800, 960, 1200',
                         sizes: '(min-width: 1200px) 25vw, (min-width: 990px) 31vw, (min-width: 750px) 44vw, 88vw',
-                        alt: product.featured_media.alt | default: product.title | escape,
+                        alt: product_image_alt,
                         class: 'wonderfae-featured-collection__image'
                     }}
                   {%- else -%}
