@@ -135,12 +135,50 @@
         "padding_top": 0,
         "padding_bottom": 56
       }
+    },
+    "wonderfae_featured_collection_VFAhDA": {
+      "type": "wonderfae-featured-collection",
+      "name": "Wonderfae collection",
+      "settings": {
+        "collection": "available-companions",
+        "products_to_show": 3,
+        "eyebrow": "Available companions",
+        "heading": "Ready-to-buy one-off pieces",
+        "heading_tag": "h2",
+        "introduction": "Named and numbered mice from the studio, including pieces paired with genuine antique or vintage objects and occasional seasonal designs.",
+        "show_divider": true,
+        "show_status": true,
+        "show_collection_label": true,
+        "show_product_number": true,
+        "show_story": true,
+        "show_object_description": true,
+        "image_ratio": "square",
+        "product_link_label": "View piece",
+        "empty_text": "Choose a collection to feature available companions.",
+        "cta_label": "Enquire About a Mouse",
+        "cta_link": "",
+        "show_view_all": false,
+        "view_all_label": "View all companions",
+        "enable_animations": true,
+        "padding_top": 72,
+        "padding_bottom": 76,
+        "background_color": "#f7efdd",
+        "card_background_color": "#f7efdd",
+        "cream_color": "#f7efdd",
+        "walnut_color": "#593a28",
+        "walnut_deep_color": "#38251b",
+        "ink_color": "#382d27",
+        "ink_soft_color": "#665246",
+        "moss_color": "#657257",
+        "gold_color": "#ad8750"
+      }
     }
   },
   "order": [
     "wonderfae_hero_MXQ9d9",
     "featured-collection",
     "image-with-text",
-    "image-with-text-1"
+    "image-with-text-1",
+    "wonderfae_featured_collection_VFAhDA"
   ]
 }
