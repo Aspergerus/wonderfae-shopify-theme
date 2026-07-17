@@ -1,1 +1,170 @@
-{"sections":{"rich-text":{"type":"rich-text","blocks":{"heading":{"type":"heading","settings":{"heading":"Meet the latest companions","heading_size":"h1"}}},"block_order":["heading"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-1","full_width":true,"padding_top":20,"padding_bottom":52}},"featured-collection":{"type":"featured-collection","settings":{"collection":"all","products_to_show":3,"title":"","heading_size":"h1","description":"","show_description":false,"description_style":"body","columns_desktop":3,"enable_desktop_slider":false,"full_width":false,"show_view_all":false,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"portrait","image_shape":"default","show_secondary_image":true,"show_vendor":true,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":28,"padding_bottom":0}},"image-with-text":{"type":"image-with-text","blocks":{"heading":{"type":"heading","settings":{"heading":"Expertly curated, affordably priced to fit your every need.","heading_size":"h1"}}},"block_order":["heading"],"settings":{"height":"adapt","desktop_image_width":"small","layout":"text_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"scheme-1","color_scheme":"scheme-3","padding_top":36,"padding_bottom":0}},"image-with-text-1":{"type":"image-with-text","blocks":{"heading":{"type":"heading","settings":{"heading":"Shop new arrivals","heading_size":"h2"}},"button":{"type":"button","settings":{"button_label":"Shop all","button_link":"shopify:\/\/collections\/all","button_style_secondary":false}}},"block_order":["heading","button"],"settings":{"height":"adapt","desktop_image_width":"large","layout":"image_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"scheme-1","color_scheme":"scheme-3","padding_top":0,"padding_bottom":56}}},"order":["rich-text","featured-collection","image-with-text","image-with-text-1"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet the latest companions",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 52
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 3,
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Expertly curated, affordably priced to fit your every need.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image-with-text-1": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shop new arrivals",
+            "heading_size": "h2"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop all",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "large",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
+        "padding_top": 0,
+        "padding_bottom": 56
+      }
+    },
+    "wonderfae_hero_MXQ9d9": {
+      "type": "wonderfae-hero",
+      "name": "Wonderfae hero",
+      "settings": {
+        "eyebrow": "Handmade needle-felted mice",
+        "heading": "Wonderfae",
+        "heading_tag": "h1",
+        "introduction": "Handmade, one-of-a-kind mice paired with genuine antique and vintage treasures. Every companion has a name, a number, and a small story of their own.",
+        "chapter_text": "Genuine sourced objects, never reproductions",
+        "primary_button_label": "Available Companions",
+        "primary_button_link": "",
+        "secondary_button_label": "Commission Enquiry",
+        "secondary_button_link": "",
+        "image_alt": "A needle-felted mouse beside a floral teacup and dried flowers",
+        "image_caption": "Beatrice, No. 001, with her antique teacup",
+        "desktop_image_position": "right",
+        "show_divider": true,
+        "show_ornaments": true,
+        "enable_animations": true,
+        "max_width": 1240,
+        "padding_top": 72,
+        "padding_bottom": 80,
+        "background_color": "#e8dcc0",
+        "cream_color": "#f7efdd",
+        "walnut_color": "#593a28",
+        "walnut_deep_color": "#38251b",
+        "ink_color": "#382d27",
+        "ink_soft_color": "#665246",
+        "moss_color": "#657257",
+        "gold_color": "#ad8750"
+      }
+    }
+  },
+  "order": [
+    "wonderfae_hero_MXQ9d9",
+    "rich-text",
+    "featured-collection",
+    "image-with-text",
+    "image-with-text-1"
+  ]
+}
