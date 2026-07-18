@@ -1,0 +1,307 @@
+{{ 'wonderfae-commissions.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign heading_tag = section.settings.heading_tag | default: 'h2'
+  assign section_anchor = section.settings.section_anchor | default: 'commissions' | handleize
+-%}
+
+<section
+  class="wonderfae-commissions{% if section.settings.enable_animations %} wonderfae-commissions--animations{% endif %}"
+  id="{{ section_anchor }}"
+  style="
+    --wonderfae-commissions-padding-top: {{ section.settings.padding_top }}px;
+    --wonderfae-commissions-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --wonderfae-commissions-max-width: {{ section.settings.max_width }}px;
+    --wonderfae-commissions-bg: {{ section.settings.background_color }};
+    --wonderfae-commissions-card-bg: {{ section.settings.card_background_color }};
+    --wonderfae-commissions-cream: {{ section.settings.cream_color }};
+    --wonderfae-commissions-walnut: {{ section.settings.walnut_color }};
+    --wonderfae-commissions-walnut-deep: {{ section.settings.walnut_deep_color }};
+    --wonderfae-commissions-ink: {{ section.settings.ink_color }};
+    --wonderfae-commissions-ink-soft: {{ section.settings.ink_soft_color }};
+    --wonderfae-commissions-moss: {{ section.settings.moss_color }};
+    --wonderfae-commissions-gold: {{ section.settings.gold_color }};
+  "
+>
+  <div class="wonderfae-commissions__container">
+    <div class="wonderfae-commissions__card">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wonderfae-commissions__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        {%- if heading_tag == 'h1' -%}
+          <h1 class="wonderfae-commissions__heading">{{ section.settings.heading }}</h1>
+        {%- else -%}
+          <h2 class="wonderfae-commissions__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_divider -%}
+        <div class="wonderfae-commissions__divider" aria-hidden="true">
+          <span class="wonderfae-commissions__divider-line"></span>
+          <svg
+            class="wonderfae-commissions__divider-leaf"
+            viewBox="0 0 24 24"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <path d="M20.2 3.8c-5.9.3-10.6 2.2-13.3 5.4-2.1 2.5-2.8 5.7-2 9.3 3.6.8 6.8.1 9.3-2 3.2-2.7 5.1-7.4 5.4-13.3.1-.3-.1-.5-.4-.4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.8 19.2 15.6 8.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="wonderfae-commissions__divider-line"></span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <div class="wonderfae-commissions__body">{{ section.settings.body }}</div>
+      {%- endif -%}
+
+      <div class="wonderfae-commissions__actions">
+        {%- if section.settings.primary_button_label != blank -%}
+          {%- if section.settings.primary_button_link != blank -%}
+            <a
+              class="wonderfae-commissions__button wonderfae-commissions__button--primary"
+              href="{{ section.settings.primary_button_link }}"
+            >
+              {{ section.settings.primary_button_label | escape }}
+            </a>
+          {%- elsif request.design_mode -%}
+            <span class="wonderfae-commissions__button wonderfae-commissions__button--primary">
+              {{ section.settings.primary_button_label | escape }}
+            </span>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_secondary_button and section.settings.secondary_button_label != blank -%}
+          {%- if section.settings.secondary_button_link != blank -%}
+            <a
+              class="wonderfae-commissions__button wonderfae-commissions__button--secondary"
+              href="{{ section.settings.secondary_button_link }}"
+            >
+              {{ section.settings.secondary_button_label | escape }}
+            </a>
+          {%- elsif request.design_mode -%}
+            <span class="wonderfae-commissions__button wonderfae-commissions__button--secondary">
+              {{ section.settings.secondary_button_label | escape }}
+            </span>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_accent_note and section.settings.accent_note != blank -%}
+        <p class="wonderfae-commissions__note">{{ section.settings.accent_note | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Wonderfae commissions",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor",
+      "label": "Section anchor",
+      "default": "commissions"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Contact and enquiries"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ask about an available mouse or a photo-inspired commission."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Wonderfae welcomes enquiries about available companions, seasonal ideas, gift vouchers and photo-inspired commissions. Reference photos are welcome. Customer-owned antiques are not accepted for use in the work.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show decorative divider",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button label",
+      "default": "Email Wonderfae"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_button",
+      "label": "Show secondary button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary button label",
+      "default": "Browse the archive"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Accent note"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_accent_note",
+      "label": "Show accent note",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "accent_note",
+      "label": "Accent note text",
+      "default": "Photo references only; customer-owned antiques stay safely with you."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "Enable CSS animations",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 640,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "label": "Card width",
+      "default": 1000
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#e8dcc0"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background",
+      "default": "#f7efdd"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#f7efdd"
+    },
+    {
+      "type": "color",
+      "id": "walnut_color",
+      "label": "Walnut",
+      "default": "#593a28"
+    },
+    {
+      "type": "color",
+      "id": "walnut_deep_color",
+      "label": "Deep walnut",
+      "default": "#38251b"
+    },
+    {
+      "type": "color",
+      "id": "ink_color",
+      "label": "Ink",
+      "default": "#382d27"
+    },
+    {
+      "type": "color",
+      "id": "ink_soft_color",
+      "label": "Soft ink",
+      "default": "#665246"
+    },
+    {
+      "type": "color",
+      "id": "moss_color",
+      "label": "Moss",
+      "default": "#657257"
+    },
+    {
+      "type": "color",
+      "id": "gold_color",
+      "label": "Antique gold",
+      "default": "#ad8750"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wonderfae commissions"
+    }
+  ]
+}
+{% endschema %}
