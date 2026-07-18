@@ -116,8 +116,8 @@
 
 .wonderfae-hero__logo-wrap {
   margin: 0 auto var(--wonderfae-hero-logo-spacing-bottom);
-  max-width: min(88vw, var(--wonderfae-hero-logo-width-desktop));
-  width: 100%;
+  max-width: 100%;
+  width: min(88vw, var(--wonderfae-hero-logo-width-desktop));
 }
 
 .wonderfae-hero__logo-image {
@@ -507,7 +507,7 @@
   }
 
   .wonderfae-hero--logo-centered .wonderfae-hero__logo-wrap {
-    max-width: min(88vw, var(--wonderfae-hero-logo-width-mobile));
+    width: min(88vw, var(--wonderfae-hero-logo-width-mobile));
   }
 
   .wonderfae-hero--logo-centered .wonderfae-hero__sprig--top {
