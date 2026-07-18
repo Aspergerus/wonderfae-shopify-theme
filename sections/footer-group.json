@@ -14,11 +14,10 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "text_q8BAzM": {
-          "type": "text",
+        "brand_information_h6aJm8": {
+          "type": "brand_information",
           "settings": {
-            "heading": "",
-            "subtext": "<p>Made slowly, with wool, old objects, and wonder.</p>"
+            "show_social": true
           }
         },
         "link_list_ezmmCW": {
@@ -27,18 +26,11 @@
             "heading": "Explore",
             "menu": "main-menu"
           }
-        },
-        "brand_information_h6aJm8": {
-          "type": "brand_information",
-          "settings": {
-            "show_social": true
-          }
         }
       },
       "block_order": [
-        "text_q8BAzM",
-        "link_list_ezmmCW",
-        "brand_information_h6aJm8"
+        "brand_information_h6aJm8",
+        "link_list_ezmmCW"
       ],
       "settings": {
         "color_scheme": "scheme-2",
