@@ -180,73 +180,6 @@
         "moss_color": "#657257",
         "gold_color": "#ad8750"
       }
-    },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Expertly curated, affordably priced to fit your every need.",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading"
-      ],
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "small",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-3",
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
-    "image-with-text-1": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Shop new arrivals",
-            "heading_size": "h2"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop all",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "large",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-3",
-        "padding_top": 0,
-        "padding_bottom": 56
-      }
     }
   },
   "order": [
@@ -254,8 +187,6 @@
     "wonderfae_story_LqVTCF",
     "wonderfae_featured_collection_VFAhDA",
     "wonderfae_commissions_PKnK3T",
-    "wonderfae_archive_9XWh6C",
-    "image-with-text",
-    "image-with-text-1"
+    "wonderfae_archive_9XWh6C"
   ]
 }
