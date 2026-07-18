@@ -26,11 +26,20 @@
             "heading": "Explore",
             "menu": "main-menu"
           }
+        },
+        "image_aDriYw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/WONDERFAE_LOGO.png",
+            "image_width": 180,
+            "alignment": "right"
+          }
         }
       },
       "block_order": [
         "brand_information_h6aJm8",
-        "link_list_ezmmCW"
+        "link_list_ezmmCW",
+        "image_aDriYw"
       ],
       "settings": {
         "color_scheme": "scheme-2",
