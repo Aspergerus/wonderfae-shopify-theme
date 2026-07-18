@@ -1,0 +1,443 @@
+{{ 'wonderfae-archive.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign archive_collection = section.settings.collection
+  assign products_to_show = section.settings.products_to_show
+  assign product_count = 0
+
+  if archive_collection != blank
+    assign product_count = archive_collection.all_products_count | at_most: products_to_show
+  endif
+
+  assign heading_tag = section.settings.heading_tag | default: 'h2'
+  assign section_anchor = section.settings.section_anchor | default: 'archive' | handleize
+-%}
+
+<section
+  class="wonderfae-archive wonderfae-archive--count-{{ product_count }}{% if section.settings.enable_animations %} wonderfae-archive--animations{% endif %}"
+  id="{{ section_anchor }}"
+  style="
+    --wonderfae-archive-padding-top: {{ section.settings.padding_top }}px;
+    --wonderfae-archive-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --wonderfae-archive-bg: {{ section.settings.background_color }};
+    --wonderfae-archive-card-bg: {{ section.settings.card_background_color }};
+    --wonderfae-archive-cream: {{ section.settings.cream_color }};
+    --wonderfae-archive-walnut: {{ section.settings.walnut_color }};
+    --wonderfae-archive-walnut-deep: {{ section.settings.walnut_deep_color }};
+    --wonderfae-archive-ink: {{ section.settings.ink_color }};
+    --wonderfae-archive-ink-soft: {{ section.settings.ink_soft_color }};
+    --wonderfae-archive-moss: {{ section.settings.moss_color }};
+    --wonderfae-archive-gold: {{ section.settings.gold_color }};
+  "
+>
+  <div class="wonderfae-archive__container">
+    <header class="wonderfae-archive__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wonderfae-archive__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        {%- if heading_tag == 'h1' -%}
+          <h1 class="wonderfae-archive__heading">{{ section.settings.heading }}</h1>
+        {%- else -%}
+          <h2 class="wonderfae-archive__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_divider -%}
+        <div class="wonderfae-archive__divider" aria-hidden="true">
+          <span class="wonderfae-archive__divider-line"></span>
+          <svg
+            class="wonderfae-archive__divider-leaf"
+            viewBox="0 0 24 24"
+            focusable="false"
+            aria-hidden="true"
+          >
+            <path d="M20.2 3.8c-5.9.3-10.6 2.2-13.3 5.4-2.1 2.5-2.8 5.7-2 9.3 3.6.8 6.8.1 9.3-2 3.2-2.7 5.1-7.4 5.4-13.3.1-.3-.1-.5-.4-.4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.8 19.2 15.6 8.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="wonderfae-archive__divider-line"></span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.introduction != blank -%}
+        <div class="wonderfae-archive__intro">{{ section.settings.introduction }}</div>
+      {%- endif -%}
+    </header>
+
+    {%- if archive_collection != blank and archive_collection.products.size > 0 -%}
+      <ul class="wonderfae-archive__grid" role="list">
+        {%- for product in archive_collection.products limit: products_to_show -%}
+          {%- liquid
+            assign collection_label = product.metafields.custom.collection_label.value | default: product.type | default: product.vendor
+            assign mouse_number = product.metafields.custom.mouse_number.value
+            assign short_story = product.metafields.custom.short_story.value
+            if short_story == blank
+              assign short_story = product.description | strip_html | truncate: 145
+            endif
+            assign object_description = product.metafields.custom.object_description.value
+            assign companion_status = product.metafields.custom.companion_status.value
+            if companion_status == blank
+              if product.available
+                assign companion_status = 'Available'
+              else
+                assign companion_status = section.settings.sold_label
+              endif
+            endif
+
+            assign image_ratio = '1 / 1'
+            if section.settings.image_ratio == 'portrait'
+              assign image_ratio = '4 / 5'
+            elsif section.settings.image_ratio == 'adapt' and product.featured_media
+              assign image_ratio = product.featured_media.aspect_ratio
+            endif
+
+            assign product_image_alt = product.featured_media.alt | default: product.title | escape
+          -%}
+          <li class="wonderfae-archive__item">
+            <product-component view-event-payload="{{ product | standard_event_data: 'view', context: 'collection' | escape }}">
+              <article class="wonderfae-archive__card{% unless product.available %} wonderfae-archive__card--adopted{% endunless %}">
+                <a
+                  class="wonderfae-archive__image-link"
+                  href="{{ product.url }}"
+                  aria-label="{{ product.title | escape }}"
+                  style="--wonderfae-archive-image-ratio: {{ image_ratio }};"
+                >
+                  {%- if product.featured_media -%}
+                    {{
+                      product.featured_media
+                      | image_url: width: 1200
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '240, 360, 480, 640, 800, 960, 1200',
+                        sizes: '(min-width: 1200px) 31vw, (min-width: 990px) 31vw, (min-width: 750px) 44vw, 88vw',
+                        alt: product_image_alt,
+                        class: 'wonderfae-archive__image'
+                    }}
+                  {%- else -%}
+                    {{ 'product-apparel-2' | placeholder_svg_tag: 'wonderfae-archive__placeholder' }}
+                  {%- endif -%}
+                </a>
+
+                <div class="wonderfae-archive__card-body">
+                  <div class="wonderfae-archive__meta">
+                    {%- if section.settings.show_collection_label and collection_label != blank -%}
+                      <p class="wonderfae-archive__collection-label">{{ collection_label | escape }}</p>
+                    {%- endif -%}
+
+                    {%- if section.settings.show_status and companion_status != blank -%}
+                      <span class="wonderfae-archive__status">{{ companion_status | escape }}</span>
+                    {%- endif -%}
+                  </div>
+
+                  <h3 class="wonderfae-archive__product-title">
+                    <a href="{{ product.url }}">{{ product.title | escape }}</a>
+                    {%- if section.settings.show_product_number and mouse_number != blank -%}
+                      <small>{{ 'No. ' | append: mouse_number | escape }}</small>
+                    {%- endif -%}
+                  </h3>
+
+                  {%- if section.settings.show_story and short_story != blank -%}
+                    <p class="wonderfae-archive__story">{{ short_story | escape }}</p>
+                  {%- endif -%}
+
+                  {%- if section.settings.show_object_description and object_description != blank -%}
+                    <p class="wonderfae-archive__object">{{ object_description | escape }}</p>
+                  {%- endif -%}
+
+                  <div class="wonderfae-archive__purchase">
+                    {%- if product.available or section.settings.show_original_price -%}
+                      {% render 'price', product: product, price_class: 'wonderfae-archive__price', show_compare_at_price: true %}
+                    {%- else -%}
+                      <span class="wonderfae-archive__sold-label">{{ section.settings.sold_label | escape }}</span>
+                    {%- endif -%}
+                    <a class="wonderfae-archive__product-link" href="{{ product.url }}">
+                      <span>{{ section.settings.product_link_label | escape }}</span>
+                      <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path d="M5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        <path d="m13 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </product-component>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- else -%}
+      <div class="wonderfae-archive__empty">
+        <p>{{ section.settings.empty_text | escape }}</p>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_view_all and archive_collection != blank -%}
+      <div class="wonderfae-archive__actions">
+        <a class="wonderfae-archive__button" href="{{ archive_collection.url }}">
+          {{ section.settings.view_all_label | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Wonderfae archive",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor",
+      "label": "Section anchor",
+      "default": "archive"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 1,
+      "max": 9,
+      "step": 1,
+      "label": "Products to show",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Archive gallery"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sold pieces stay part of the story"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        }
+      ]
+    },
+    {
+      "type": "inline_richtext",
+      "id": "introduction",
+      "label": "Introduction",
+      "default": "Past mice remain visible so collectors can browse previous names, numbers, pairings, and seasonal ideas."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show decorative divider",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Product cards"
+    },
+    {
+      "type": "text",
+      "id": "sold_label",
+      "label": "Sold/adopted label",
+      "default": "Adopted"
+    },
+    {
+      "type": "text",
+      "id": "product_link_label",
+      "label": "Product link label",
+      "default": "View companion"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_status",
+      "label": "Show status",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_label",
+      "label": "Show collection label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_number",
+      "label": "Show product number",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_story",
+      "label": "Show story",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_object_description",
+      "label": "Show object description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_original_price",
+      "label": "Show original price",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "default": "square",
+      "options": [
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "adapt",
+          "label": "Adapt to image"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty collection text",
+      "default": "Choose a collection to feature archived companions."
+    },
+    {
+      "type": "header",
+      "content": "Footer action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show collection view-all link",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View-all label",
+      "default": "View the full archive"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "Enable CSS animations",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 76
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f7efdd"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background",
+      "default": "#f7efdd"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#f7efdd"
+    },
+    {
+      "type": "color",
+      "id": "walnut_color",
+      "label": "Walnut",
+      "default": "#593a28"
+    },
+    {
+      "type": "color",
+      "id": "walnut_deep_color",
+      "label": "Deep walnut",
+      "default": "#38251b"
+    },
+    {
+      "type": "color",
+      "id": "ink_color",
+      "label": "Ink",
+      "default": "#382d27"
+    },
+    {
+      "type": "color",
+      "id": "ink_soft_color",
+      "label": "Soft ink",
+      "default": "#665246"
+    },
+    {
+      "type": "color",
+      "id": "moss_color",
+      "label": "Moss",
+      "default": "#657257"
+    },
+    {
+      "type": "color",
+      "id": "gold_color",
+      "label": "Antique gold",
+      "default": "#ad8750"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wonderfae archive"
+    }
+  ]
+}
+{% endschema %}

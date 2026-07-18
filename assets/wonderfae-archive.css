@@ -1,0 +1,457 @@
+.wonderfae-archive {
+  --wonderfae-archive-display-font: Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --wonderfae-archive-body-font: Georgia, "Times New Roman", serif;
+  --wonderfae-archive-accent-font: "Palatino Linotype", Baskerville, Georgia, serif;
+  --wonderfae-archive-border: 1px solid rgb(89 58 40 / 20%);
+  --wonderfae-archive-shadow: 0 1rem 2.6rem rgb(56 37 27 / 9%);
+
+  background:
+    radial-gradient(circle at 20% 12%, rgb(255 246 220 / 48%) 0, transparent 33%),
+    linear-gradient(115deg, rgb(255 247 226 / 30%), transparent 45%),
+    var(--wonderfae-archive-bg);
+  color: var(--wonderfae-archive-ink);
+  overflow: clip;
+  padding: var(--wonderfae-archive-padding-top) 0 var(--wonderfae-archive-padding-bottom);
+}
+
+.wonderfae-archive__container {
+  margin-inline: auto;
+  max-width: 77rem;
+  padding-inline: clamp(1.25rem, 4vw, 3.7rem);
+  width: 100%;
+}
+
+.wonderfae-archive__header {
+  margin: 0 auto clamp(2.2rem, 4vw, 3.6rem);
+  max-width: 38rem;
+  text-align: center;
+}
+
+.wonderfae-archive__eyebrow {
+  color: var(--wonderfae-archive-moss);
+  font-family: var(--wonderfae-archive-accent-font);
+  font-size: clamp(0.68rem, 0.64rem + 0.18vw, 0.78rem);
+  font-style: italic;
+  letter-spacing: 0.34em;
+  line-height: 1.5;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.wonderfae-archive__heading {
+  color: var(--wonderfae-archive-walnut-deep);
+  font-family: var(--wonderfae-archive-display-font);
+  font-size: clamp(2.15rem, 1.6rem + 2.1vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.2;
+  margin: 0.6rem 0 1rem;
+}
+
+.wonderfae-archive__intro {
+  color: var(--wonderfae-archive-ink-soft);
+  font-family: var(--wonderfae-archive-body-font);
+  font-size: clamp(1rem, 0.95rem + 0.17vw, 1.12rem);
+  line-height: 1.75;
+}
+
+.wonderfae-archive__intro > * {
+  margin: 0;
+}
+
+.wonderfae-archive__divider {
+  align-items: center;
+  color: var(--wonderfae-archive-gold);
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto clamp(1.35rem, 1rem + 1vw, 2.15rem);
+  max-width: 14rem;
+}
+
+.wonderfae-archive__divider-line {
+  background: linear-gradient(90deg, transparent, currentColor);
+  display: block;
+  height: 1px;
+  opacity: 0.66;
+  width: 4.2rem;
+}
+
+.wonderfae-archive__divider-line:last-child {
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+.wonderfae-archive__divider-leaf {
+  height: 1rem;
+  transform: rotate(-25deg);
+  width: 1rem;
+}
+
+.wonderfae-archive__grid {
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wonderfae-archive--count-1 .wonderfae-archive__grid {
+  grid-template-columns: minmax(0, min(100%, 27rem));
+  justify-content: center;
+}
+
+.wonderfae-archive--count-2 .wonderfae-archive__grid {
+  grid-template-columns: repeat(2, minmax(0, min(100%, 26rem)));
+  justify-content: center;
+}
+
+.wonderfae-archive--count-4 .wonderfae-archive__grid,
+.wonderfae-archive--count-5 .wonderfae-archive__grid,
+.wonderfae-archive--count-6 .wonderfae-archive__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wonderfae-archive__item,
+.wonderfae-archive product-component {
+  display: flex;
+  min-width: 0;
+}
+
+.wonderfae-archive__card {
+  background: color-mix(in srgb, var(--wonderfae-archive-card-bg) 86%, transparent);
+  border: var(--wonderfae-archive-border);
+  box-shadow: var(--wonderfae-archive-shadow);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(0.55rem, 0.8vw, 0.72rem);
+  transition:
+    box-shadow 300ms ease,
+    opacity 300ms ease,
+    transform 300ms ease;
+}
+
+.wonderfae-archive__card--adopted {
+  opacity: 0.84;
+}
+
+.wonderfae-archive__card:hover,
+.wonderfae-archive__card:focus-within {
+  box-shadow: 0 1.2rem 2.8rem rgb(56 37 27 / 12%);
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.wonderfae-archive__image-link {
+  aspect-ratio: var(--wonderfae-archive-image-ratio, 1 / 1);
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+.wonderfae-archive__image-link:focus-visible,
+.wonderfae-archive__product-title a:focus-visible,
+.wonderfae-archive__product-link:focus-visible,
+.wonderfae-archive__button:focus-visible {
+  box-shadow:
+    0 0 0 0.18rem var(--wonderfae-archive-bg),
+    0 0 0 0.34rem var(--wonderfae-archive-moss);
+  outline: 0;
+}
+
+.wonderfae-archive__image,
+.wonderfae-archive__placeholder {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease;
+  width: 100%;
+}
+
+.wonderfae-archive__placeholder {
+  background: rgb(89 58 40 / 5%);
+  color: rgb(89 58 40 / 20%);
+}
+
+.wonderfae-archive__card:hover .wonderfae-archive__image,
+.wonderfae-archive__card:focus-within .wonderfae-archive__image {
+  transform: scale(1.03);
+}
+
+.wonderfae-archive__card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(1rem, 2vw, 1.35rem) clamp(0.4rem, 1vw, 0.68rem) 0.68rem;
+}
+
+.wonderfae-archive__meta {
+  align-items: start;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  min-height: 1.6rem;
+}
+
+.wonderfae-archive__collection-label {
+  color: var(--wonderfae-archive-moss);
+  font-size: 0.67rem;
+  letter-spacing: 0.2em;
+  line-height: 1.35;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.wonderfae-archive__status {
+  border: 1px solid color-mix(in srgb, var(--wonderfae-archive-gold) 35%, transparent);
+  color: var(--wonderfae-archive-walnut);
+  flex: 0 0 auto;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  padding: 0.22rem 0.45rem;
+  text-transform: uppercase;
+}
+
+.wonderfae-archive__product-title {
+  color: var(--wonderfae-archive-walnut-deep);
+  font-family: var(--wonderfae-archive-display-font);
+  font-size: clamp(1.4rem, 1.1rem + 0.65vw, 1.72rem);
+  font-weight: 400;
+  line-height: 1.28;
+  margin: 0.38rem 0 0.65rem;
+}
+
+.wonderfae-archive__product-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wonderfae-archive__product-title small {
+  color: var(--wonderfae-archive-ink-soft);
+  display: block;
+  font-family: var(--wonderfae-archive-body-font);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  margin-top: 0.24rem;
+  text-transform: uppercase;
+}
+
+.wonderfae-archive__story {
+  color: var(--wonderfae-archive-ink-soft);
+  flex: 1;
+  font-family: var(--wonderfae-archive-body-font);
+  line-height: 1.6;
+  margin: 0 0 1.45rem;
+}
+
+.wonderfae-archive__object {
+  border-top: var(--wonderfae-archive-border);
+  color: var(--wonderfae-archive-ink-soft);
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+  padding-top: 0.9rem;
+}
+
+.wonderfae-archive__purchase {
+  align-items: center;
+  border-top: var(--wonderfae-archive-border);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.95rem;
+}
+
+.wonderfae-archive__price,
+.wonderfae-archive__sold-label {
+  color: var(--wonderfae-archive-walnut);
+  font-size: 1.04rem;
+}
+
+.wonderfae-archive__price .price {
+  color: inherit;
+}
+
+.wonderfae-archive__product-link {
+  align-items: center;
+  color: var(--wonderfae-archive-ink-soft);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  gap: 0.34rem;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.wonderfae-archive__product-link svg {
+  height: 0.82rem;
+  width: 0.82rem;
+}
+
+.wonderfae-archive__empty {
+  border: var(--wonderfae-archive-border);
+  color: var(--wonderfae-archive-ink-soft);
+  margin-inline: auto;
+  max-width: 38rem;
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.wonderfae-archive__empty p {
+  margin: 0;
+}
+
+.wonderfae-archive__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2.5rem, 5vw, 3.8rem);
+  text-align: center;
+}
+
+.wonderfae-archive__button {
+  align-items: center;
+  background: var(--wonderfae-archive-walnut);
+  border: 1px solid var(--wonderfae-archive-walnut);
+  color: var(--wonderfae-archive-cream);
+  display: inline-flex;
+  font-family: var(--wonderfae-archive-accent-font);
+  font-size: 0.77rem;
+  justify-content: center;
+  letter-spacing: 0.18em;
+  min-height: 3.15rem;
+  padding: 0.1rem 1.6rem 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    transform 250ms ease;
+}
+
+.wonderfae-archive__button:hover {
+  background: var(--wonderfae-archive-walnut-deep);
+  color: var(--wonderfae-archive-cream);
+  transform: translateY(-2px);
+}
+
+.wonderfae-archive--animations .wonderfae-archive__header,
+.wonderfae-archive--animations .wonderfae-archive__item,
+.wonderfae-archive--animations .wonderfae-archive__actions {
+  animation: wonderfae-archive-reveal 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(7) {
+  animation-delay: 0.48s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(8) {
+  animation-delay: 0.56s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__item:nth-child(9) {
+  animation-delay: 0.64s;
+}
+
+.wonderfae-archive--animations .wonderfae-archive__actions {
+  animation-delay: 0.35s;
+}
+
+@keyframes wonderfae-archive-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 74rem) {
+  .wonderfae-archive--count-4 .wonderfae-archive__grid,
+  .wonderfae-archive--count-5 .wonderfae-archive__grid,
+  .wonderfae-archive--count-6 .wonderfae-archive__grid {
+    grid-template-columns: repeat(2, minmax(0, min(100%, 26rem)));
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 62rem) {
+  .wonderfae-archive__grid,
+  .wonderfae-archive--count-2 .wonderfae-archive__grid,
+  .wonderfae-archive--count-3 .wonderfae-archive__grid,
+  .wonderfae-archive--count-4 .wonderfae-archive__grid,
+  .wonderfae-archive--count-5 .wonderfae-archive__grid,
+  .wonderfae-archive--count-6 .wonderfae-archive__grid,
+  .wonderfae-archive--count-7 .wonderfae-archive__grid,
+  .wonderfae-archive--count-8 .wonderfae-archive__grid,
+  .wonderfae-archive--count-9 .wonderfae-archive__grid {
+    grid-template-columns: repeat(2, minmax(0, min(100%, 25rem)));
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .wonderfae-archive__grid,
+  .wonderfae-archive--count-1 .wonderfae-archive__grid,
+  .wonderfae-archive--count-2 .wonderfae-archive__grid,
+  .wonderfae-archive--count-3 .wonderfae-archive__grid,
+  .wonderfae-archive--count-4 .wonderfae-archive__grid,
+  .wonderfae-archive--count-5 .wonderfae-archive__grid,
+  .wonderfae-archive--count-6 .wonderfae-archive__grid,
+  .wonderfae-archive--count-7 .wonderfae-archive__grid,
+  .wonderfae-archive--count-8 .wonderfae-archive__grid,
+  .wonderfae-archive--count-9 .wonderfae-archive__grid {
+    grid-template-columns: minmax(0, min(100%, 25rem));
+    justify-content: center;
+  }
+
+  .wonderfae-archive__purchase {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  .wonderfae-archive__button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wonderfae-archive *,
+  .wonderfae-archive *::before,
+  .wonderfae-archive *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
