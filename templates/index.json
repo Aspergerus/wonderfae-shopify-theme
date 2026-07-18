@@ -41,6 +41,39 @@
         "gold_color": "#ad8750"
       }
     },
+    "wonderfae_story_LqVTCF": {
+      "type": "wonderfae-story",
+      "name": "Wonderfae story",
+      "settings": {
+        "section_anchor": "story",
+        "eyebrow": "The Wonderfae Story",
+        "heading": "Every mouse has a name, a home, and a tale.",
+        "heading_tag": "h2",
+        "body": "<p>Each Wonderfae companion begins as loose wool and slowly takes shape by hand. Every piece is individually felted, stitched and finished with its own expression, clothing and story.</p><p>Some companions are paired with genuine antique or vintage objects, chosen to feel as though they have always belonged together. These are keepsake pieces made for shelves, celebrations and the quieter rituals of home.</p>",
+        "keepsake_note": "Every mouse arrives with a handwritten keepsake card.",
+        "show_divider": false,
+        "show_botanical_ornament": true,
+        "show_cta": true,
+        "cta_label": "Discover the craft",
+        "cta_link": "",
+        "desktop_side_position": "left",
+        "mobile_order": "content_first",
+        "enable_animations": true,
+        "max_width": 1000,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "background_color": "#e8dcc0",
+        "card_background_color": "#f7efdd",
+        "cream_color": "#f7efdd",
+        "walnut_color": "#593a28",
+        "walnut_deep_color": "#38251b",
+        "ink_color": "#382d27",
+        "ink_soft_color": "#665246",
+        "moss_color": "#657257",
+        "gold_color": "#ad8750",
+        "blush_color": "#b78078"
+      }
+    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -214,48 +247,15 @@
         "moss_color": "#657257",
         "gold_color": "#ad8750"
       }
-    },
-    "wonderfae_story_LqVTCF": {
-      "type": "wonderfae-story",
-      "name": "Wonderfae story",
-      "settings": {
-        "section_anchor": "story",
-        "eyebrow": "The Wonderfae Story",
-        "heading": "Every mouse has a name, a home, and a tale.",
-        "heading_tag": "h2",
-        "body": "<p>Each Wonderfae companion begins as loose wool and slowly takes shape by hand. Every piece is individually felted, stitched and finished with its own expression, clothing and story.</p><p>Some companions are paired with genuine antique or vintage objects, chosen to feel as though they have always belonged together. These are keepsake pieces made for shelves, celebrations and the quieter rituals of home.</p>",
-        "keepsake_note": "Every mouse arrives with a handwritten keepsake card.",
-        "show_divider": false,
-        "show_botanical_ornament": true,
-        "show_cta": true,
-        "cta_label": "Discover the craft",
-        "cta_link": "",
-        "desktop_side_position": "left",
-        "mobile_order": "content_first",
-        "enable_animations": true,
-        "max_width": 1000,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "background_color": "#e8dcc0",
-        "card_background_color": "#f7efdd",
-        "cream_color": "#f7efdd",
-        "walnut_color": "#593a28",
-        "walnut_deep_color": "#38251b",
-        "ink_color": "#382d27",
-        "ink_soft_color": "#665246",
-        "moss_color": "#657257",
-        "gold_color": "#ad8750",
-        "blush_color": "#b78078"
-      }
     }
   },
   "order": [
     "wonderfae_hero_MXQ9d9",
-    "image-with-text",
-    "image-with-text-1",
+    "wonderfae_story_LqVTCF",
     "wonderfae_featured_collection_VFAhDA",
     "wonderfae_commissions_PKnK3T",
     "wonderfae_archive_9XWh6C",
-    "wonderfae_story_LqVTCF"
+    "image-with-text",
+    "image-with-text-1"
   ]
 }
