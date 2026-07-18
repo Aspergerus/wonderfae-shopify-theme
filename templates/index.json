@@ -41,34 +41,6 @@
         "gold_color": "#ad8750"
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "available-companions",
-        "products_to_show": 3,
-        "title": "",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 3,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 0
-      }
-    },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
@@ -176,7 +148,6 @@
   },
   "order": [
     "wonderfae_hero_MXQ9d9",
-    "featured-collection",
     "image-with-text",
     "image-with-text-1",
     "wonderfae_featured_collection_VFAhDA"
