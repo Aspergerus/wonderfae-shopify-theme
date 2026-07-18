@@ -193,11 +193,66 @@
         "moss_color": "#657257",
         "gold_color": "#ad8750"
       }
+    },
+    "wonderfae_how_it_works_BQ67g7": {
+      "type": "wonderfae-how-it-works",
+      "blocks": {
+        "step_BLx4QN": {
+          "type": "step",
+          "settings": {
+            "title": "One mouse at a time",
+            "body": "<p>Each piece is handmade, named, and numbered. No two mice or object pairings are exactly the same.</p>"
+          }
+        },
+        "step_c7rKXJ": {
+          "type": "step",
+          "settings": {
+            "title": "Original vintage objects",
+            "body": "<p>Teacups, tins, dishes, books, bobbins, and reels are genuine sourced originals, not reproductions.</p>"
+          }
+        },
+        "step_pQKKMt": {
+          "type": "step",
+          "settings": {
+            "title": "Thoughtful commissions",
+            "body": "<p>Customers can request a separate mouse inspired by their own object using photos only. Wonderfae does not handle customer-owned antiques.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_BLx4QN",
+        "step_c7rKXJ",
+        "step_pQKKMt"
+      ],
+      "name": "Wonderfae process",
+      "settings": {
+        "section_anchor": "how-it-works",
+        "eyebrow": "How Wonderfae works",
+        "heading": "Made slowly, sourced carefully",
+        "heading_tag": "h2",
+        "introduction": "Wonderfae pieces are keepsakes built around character, provenance, and small details.",
+        "show_divider": true,
+        "show_step_numbers": false,
+        "enable_animations": true,
+        "max_width": 1200,
+        "grid_width": 1060,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "background_color": "#f7efdd",
+        "cream_color": "#f7efdd",
+        "walnut_color": "#593a28",
+        "walnut_deep_color": "#38251b",
+        "ink_color": "#382d27",
+        "ink_soft_color": "#665246",
+        "moss_color": "#657257",
+        "gold_color": "#ad8750"
+      }
     }
   },
   "order": [
     "wonderfae_hero_MXQ9d9",
     "wonderfae_story_LqVTCF",
+    "wonderfae_how_it_works_BQ67g7",
     "wonderfae_featured_collection_VFAhDA",
     "wonderfae_commissions_PKnK3T",
     "wonderfae_archive_9XWh6C"
