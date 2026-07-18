@@ -176,6 +176,44 @@
         "moss_color": "#657257",
         "gold_color": "#ad8750"
       }
+    },
+    "wonderfae_archive_9XWh6C": {
+      "type": "wonderfae-archive",
+      "name": "Wonderfae archive",
+      "settings": {
+        "section_anchor": "archive",
+        "collection": "archived-companions",
+        "products_to_show": 3,
+        "eyebrow": "Archive gallery",
+        "heading": "Sold pieces stay part of the story",
+        "heading_tag": "h2",
+        "introduction": "Past mice remain visible so collectors can browse previous names, numbers, pairings, and seasonal ideas.",
+        "show_divider": true,
+        "sold_label": "Adopted",
+        "product_link_label": "View companion",
+        "show_status": true,
+        "show_collection_label": true,
+        "show_product_number": true,
+        "show_story": true,
+        "show_object_description": true,
+        "show_original_price": false,
+        "image_ratio": "square",
+        "empty_text": "Choose a collection to feature archived companions.",
+        "show_view_all": false,
+        "view_all_label": "View the full archive",
+        "enable_animations": true,
+        "padding_top": 72,
+        "padding_bottom": 76,
+        "background_color": "#f7efdd",
+        "card_background_color": "#f7efdd",
+        "cream_color": "#f7efdd",
+        "walnut_color": "#593a28",
+        "walnut_deep_color": "#38251b",
+        "ink_color": "#382d27",
+        "ink_soft_color": "#665246",
+        "moss_color": "#657257",
+        "gold_color": "#ad8750"
+      }
     }
   },
   "order": [
@@ -183,6 +221,7 @@
     "image-with-text",
     "image-with-text-1",
     "wonderfae_featured_collection_VFAhDA",
-    "wonderfae_commissions_PKnK3T"
+    "wonderfae_commissions_PKnK3T",
+    "wonderfae_archive_9XWh6C"
   ]
 }
