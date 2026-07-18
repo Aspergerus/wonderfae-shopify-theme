@@ -4,10 +4,13 @@
   assign heading_tag = section.settings.heading_tag | default: 'h1'
   assign image_alt = section.settings.image_alt | default: section.settings.image_caption | default: section.settings.heading | escape
   assign desktop_image_position = section.settings.desktop_image_position | default: 'right'
+  assign layout_mode = section.settings.layout_mode | default: 'split'
+  assign hero_logo_alt = section.settings.hero_logo_alt | default: section.settings.heading | default: 'Wonderfae' | escape
+  assign button_alignment = section.settings.button_alignment | default: 'center'
 -%}
 
 <section
-  class="wonderfae-hero wonderfae-hero--image-{{ desktop_image_position }}{% if section.settings.enable_animations %} wonderfae-hero--animations{% endif %}"
+  class="wonderfae-hero wonderfae-hero--{{ layout_mode | replace: '_', '-' }} wonderfae-hero--image-{{ desktop_image_position }} wonderfae-hero--buttons-{{ button_alignment }}{% if section.settings.enable_animations %} wonderfae-hero--animations{% endif %}"
   style="
     --wonderfae-hero-padding-top: {{ section.settings.padding_top }}px;
     --wonderfae-hero-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -20,92 +23,113 @@
     --wonderfae-hero-moss: {{ section.settings.moss_color }};
     --wonderfae-hero-gold: {{ section.settings.gold_color }};
     --wonderfae-hero-container: {{ section.settings.max_width }}px;
+    --wonderfae-hero-logo-width-desktop: {{ section.settings.logo_width_desktop }}px;
+    --wonderfae-hero-logo-width-mobile: {{ section.settings.logo_width_mobile }}px;
+    --wonderfae-hero-logo-spacing-bottom: {{ section.settings.logo_spacing_bottom }}px;
+    --wonderfae-hero-centered-content-width: {{ section.settings.centered_content_width }}px;
   "
 >
   <div class="wonderfae-hero__light" aria-hidden="true"></div>
   <div class="wonderfae-hero__grain" aria-hidden="true"></div>
 
-  <div class="wonderfae-hero__container">
-    <div class="wonderfae-hero__content">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="wonderfae-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-      {%- endif -%}
-
-      {%- if section.settings.heading != blank -%}
-        {%- if heading_tag == 'h2' -%}
-          <h2 class="wonderfae-hero__wordmark">
-            {{ section.settings.heading }}
-          </h2>
-        {%- else -%}
-          <h1 class="wonderfae-hero__wordmark">
-            {{ section.settings.heading }}
-          </h1>
+  {%- if layout_mode == 'logo_centered' -%}
+    <div class="wonderfae-hero__container wonderfae-hero__container--centered">
+      <div class="wonderfae-hero__content wonderfae-hero__content--centered">
+        {%- if section.settings.show_logo_mode_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="wonderfae-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
-      {%- endif -%}
 
-      {%- if section.settings.show_divider -%}
-        <div class="wonderfae-hero__divider" aria-hidden="true">
-          <span class="wonderfae-hero__divider-line"></span>
-          <svg
-            class="wonderfae-hero__divider-leaf"
-            viewBox="0 0 24 24"
-            focusable="false"
-            aria-hidden="true"
-          >
-            <path d="M20.2 3.8c-5.9.3-10.6 2.2-13.3 5.4-2.1 2.5-2.8 5.7-2 9.3 3.6.8 6.8.1 9.3-2 3.2-2.7 5.1-7.4 5.4-13.3.1-.3-.1-.5-.4-.4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4.8 19.2 15.6 8.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-          <span class="wonderfae-hero__divider-line"></span>
+        {%- if section.settings.hero_logo != blank -%}
+          {%- capture logo_sizes -%}(min-width: 750px) {{ section.settings.logo_width_desktop }}px, {{ section.settings.logo_width_mobile }}px{%- endcapture -%}
+          <div class="wonderfae-hero__logo-wrap">
+            {{
+              section.settings.hero_logo
+              | image_url: width: 2000
+              | image_tag:
+                loading: 'eager',
+                widths: '300, 440, 600, 760, 920, 1100, 1400, 1700, 2000',
+                sizes: logo_sizes,
+                alt: hero_logo_alt,
+                class: 'wonderfae-hero__logo-image'
+              }}
+          </div>
+          {%- unless section.settings.show_logo_mode_heading -%}
+            {%- if section.settings.heading != blank -%}
+              <h1 class="visually-hidden">{{ section.settings.heading }}</h1>
+            {%- endif -%}
+          {%- endunless -%}
+        {%- else -%}
+          {%- if section.settings.heading != blank -%}
+            {%- if heading_tag == 'h2' -%}
+              <h2 class="wonderfae-hero__wordmark wonderfae-hero__wordmark--fallback">
+                {{ section.settings.heading }}
+              </h2>
+            {%- else -%}
+              <h1 class="wonderfae-hero__wordmark wonderfae-hero__wordmark--fallback">
+                {{ section.settings.heading }}
+              </h1>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_logo_mode_heading and section.settings.hero_logo != blank and section.settings.heading != blank -%}
+          {%- if heading_tag == 'h2' -%}
+            <h2 class="wonderfae-hero__wordmark wonderfae-hero__wordmark--logo-mode">
+              {{ section.settings.heading }}
+            </h2>
+          {%- else -%}
+            <h1 class="wonderfae-hero__wordmark wonderfae-hero__wordmark--logo-mode">
+              {{ section.settings.heading }}
+            </h1>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_logo_mode_divider and section.settings.show_divider -%}
+          <div class="wonderfae-hero__divider" aria-hidden="true">
+            <span class="wonderfae-hero__divider-line"></span>
+            <svg
+              class="wonderfae-hero__divider-leaf"
+              viewBox="0 0 24 24"
+              focusable="false"
+              aria-hidden="true"
+            >
+              <path d="M20.2 3.8c-5.9.3-10.6 2.2-13.3 5.4-2.1 2.5-2.8 5.7-2 9.3 3.6.8 6.8.1 9.3-2 3.2-2.7 5.1-7.4 5.4-13.3.1-.3-.1-.5-.4-.4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4.8 19.2 15.6 8.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span class="wonderfae-hero__divider-line"></span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.introduction != blank -%}
+          <p class="wonderfae-hero__intro">{{ section.settings.introduction }}</p>
+        {%- endif -%}
+
+        <div class="wonderfae-hero__actions">
+          {%- if section.settings.primary_button_label != blank -%}
+            {%- if section.settings.primary_button_link != blank -%}
+              <a class="wonderfae-hero__button wonderfae-hero__button--primary" href="{{ section.settings.primary_button_link }}">
+                {{ section.settings.primary_button_label | escape }}
+              </a>
+            {%- elsif request.design_mode -%}
+              <span class="wonderfae-hero__button wonderfae-hero__button--primary">
+                {{ section.settings.primary_button_label | escape }}
+              </span>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if section.settings.secondary_button_label != blank -%}
+            {%- if section.settings.secondary_button_link != blank -%}
+              <a class="wonderfae-hero__button wonderfae-hero__button--secondary" href="{{ section.settings.secondary_button_link }}">
+                {{ section.settings.secondary_button_label | escape }}
+              </a>
+            {%- elsif request.design_mode -%}
+              <span class="wonderfae-hero__button wonderfae-hero__button--secondary">
+                {{ section.settings.secondary_button_label | escape }}
+              </span>
+            {%- endif -%}
+          {%- endif -%}
         </div>
-      {%- endif -%}
-
-      {%- if section.settings.introduction != blank -%}
-        <p class="wonderfae-hero__intro">{{ section.settings.introduction }}</p>
-      {%- endif -%}
-
-      <div class="wonderfae-hero__actions">
-        {%- if section.settings.primary_button_label != blank -%}
-          <a class="wonderfae-hero__button wonderfae-hero__button--primary" href="{{ section.settings.primary_button_link | default: '#' }}">
-            {{ section.settings.primary_button_label | escape }}
-          </a>
-        {%- endif -%}
-
-        {%- if section.settings.secondary_button_label != blank -%}
-          <a class="wonderfae-hero__button wonderfae-hero__button--secondary" href="{{ section.settings.secondary_button_link | default: '#' }}">
-            {{ section.settings.secondary_button_label | escape }}
-          </a>
-        {%- endif -%}
       </div>
-    </div>
-
-    <figure class="wonderfae-hero__portrait">
-      <div class="wonderfae-hero__image-frame">
-        {%- if section.settings.image != blank -%}
-          {{
-            section.settings.image
-            | image_url: width: 1600
-            | image_tag:
-              loading: 'eager',
-              widths: '360, 540, 720, 900, 1080, 1296, 1600',
-              sizes: '(min-width: 990px) 38vw, (min-width: 750px) 64vw, 92vw',
-              alt: image_alt,
-              class: 'wonderfae-hero__image'
-          }}
-        {%- else -%}
-          <img
-            class="wonderfae-hero__image"
-            src="{{ 'wonderfae-hero.jpg' | asset_url }}"
-            alt="{{ image_alt }}"
-            width="720"
-            height="1080"
-            loading="eager"
-          >
-        {%- endif -%}
-      </div>
-
-      {%- if section.settings.image_caption != blank -%}
-        <figcaption class="wonderfae-hero__caption">{{ section.settings.image_caption | escape }}</figcaption>
-      {%- endif -%}
 
       {%- if section.settings.show_ornaments -%}
         <span class="wonderfae-hero__sprig wonderfae-hero__sprig--top" aria-hidden="true">
@@ -115,22 +139,139 @@
           <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--three"></span>
           <span class="wonderfae-hero__sprig-flower"></span>
         </span>
+        <span class="wonderfae-hero__sprig wonderfae-hero__sprig--lower" aria-hidden="true">
+          <span class="wonderfae-hero__sprig-stem"></span>
+          <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--one"></span>
+          <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--two"></span>
+          <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--three"></span>
+          <span class="wonderfae-hero__sprig-flower"></span>
+        </span>
       {%- endif -%}
-    </figure>
+    </div>
 
-    {%- if section.settings.show_ornaments -%}
-      <span class="wonderfae-hero__sprig wonderfae-hero__sprig--lower" aria-hidden="true">
-        <span class="wonderfae-hero__sprig-stem"></span>
-        <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--one"></span>
-        <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--two"></span>
-        <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--three"></span>
-        <span class="wonderfae-hero__sprig-flower"></span>
-      </span>
+    {%- if section.settings.show_logo_mode_chapter_text and section.settings.chapter_text != blank -%}
+      <p class="wonderfae-hero__chapter">{{ section.settings.chapter_text | escape }}</p>
     {%- endif -%}
-  </div>
+  {%- else -%}
+    <div class="wonderfae-hero__container">
+      <div class="wonderfae-hero__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="wonderfae-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
 
-  {%- if section.settings.chapter_text != blank -%}
-    <p class="wonderfae-hero__chapter">{{ section.settings.chapter_text | escape }}</p>
+        {%- if section.settings.heading != blank -%}
+          {%- if heading_tag == 'h2' -%}
+            <h2 class="wonderfae-hero__wordmark">
+              {{ section.settings.heading }}
+            </h2>
+          {%- else -%}
+            <h1 class="wonderfae-hero__wordmark">
+              {{ section.settings.heading }}
+            </h1>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_divider -%}
+          <div class="wonderfae-hero__divider" aria-hidden="true">
+            <span class="wonderfae-hero__divider-line"></span>
+            <svg
+              class="wonderfae-hero__divider-leaf"
+              viewBox="0 0 24 24"
+              focusable="false"
+              aria-hidden="true"
+            >
+              <path d="M20.2 3.8c-5.9.3-10.6 2.2-13.3 5.4-2.1 2.5-2.8 5.7-2 9.3 3.6.8 6.8.1 9.3-2 3.2-2.7 5.1-7.4 5.4-13.3.1-.3-.1-.5-.4-.4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4.8 19.2 15.6 8.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span class="wonderfae-hero__divider-line"></span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.introduction != blank -%}
+          <p class="wonderfae-hero__intro">{{ section.settings.introduction }}</p>
+        {%- endif -%}
+
+        <div class="wonderfae-hero__actions">
+          {%- if section.settings.primary_button_label != blank -%}
+            {%- if section.settings.primary_button_link != blank -%}
+              <a class="wonderfae-hero__button wonderfae-hero__button--primary" href="{{ section.settings.primary_button_link }}">
+                {{ section.settings.primary_button_label | escape }}
+              </a>
+            {%- elsif request.design_mode -%}
+              <span class="wonderfae-hero__button wonderfae-hero__button--primary">
+                {{ section.settings.primary_button_label | escape }}
+              </span>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if section.settings.secondary_button_label != blank -%}
+            {%- if section.settings.secondary_button_link != blank -%}
+              <a class="wonderfae-hero__button wonderfae-hero__button--secondary" href="{{ section.settings.secondary_button_link }}">
+                {{ section.settings.secondary_button_label | escape }}
+              </a>
+            {%- elsif request.design_mode -%}
+              <span class="wonderfae-hero__button wonderfae-hero__button--secondary">
+                {{ section.settings.secondary_button_label | escape }}
+              </span>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <figure class="wonderfae-hero__portrait">
+        <div class="wonderfae-hero__image-frame">
+          {%- if section.settings.image != blank -%}
+            {{
+              section.settings.image
+              | image_url: width: 1600
+              | image_tag:
+                loading: 'eager',
+                widths: '360, 540, 720, 900, 1080, 1296, 1600',
+                sizes: '(min-width: 990px) 38vw, (min-width: 750px) 64vw, 92vw',
+                alt: image_alt,
+                class: 'wonderfae-hero__image'
+            }}
+          {%- else -%}
+            <img
+              class="wonderfae-hero__image"
+              src="{{ 'wonderfae-hero.jpg' | asset_url }}"
+              alt="{{ image_alt }}"
+              width="720"
+              height="1080"
+              loading="eager"
+            >
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.image_caption != blank -%}
+          <figcaption class="wonderfae-hero__caption">{{ section.settings.image_caption | escape }}</figcaption>
+        {%- endif -%}
+
+        {%- if section.settings.show_ornaments -%}
+          <span class="wonderfae-hero__sprig wonderfae-hero__sprig--top" aria-hidden="true">
+            <span class="wonderfae-hero__sprig-stem"></span>
+            <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--one"></span>
+            <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--two"></span>
+            <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--three"></span>
+            <span class="wonderfae-hero__sprig-flower"></span>
+          </span>
+        {%- endif -%}
+      </figure>
+
+      {%- if section.settings.show_ornaments -%}
+        <span class="wonderfae-hero__sprig wonderfae-hero__sprig--lower" aria-hidden="true">
+          <span class="wonderfae-hero__sprig-stem"></span>
+          <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--one"></span>
+          <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--two"></span>
+          <span class="wonderfae-hero__sprig-leaf wonderfae-hero__sprig-leaf--three"></span>
+          <span class="wonderfae-hero__sprig-flower"></span>
+        </span>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.chapter_text != blank -%}
+      <p class="wonderfae-hero__chapter">{{ section.settings.chapter_text | escape }}</p>
+    {%- endif -%}
   {%- endif -%}
 </section>
 
@@ -140,6 +281,22 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "select",
+      "id": "layout_mode",
+      "label": "Hero layout",
+      "default": "split",
+      "options": [
+        {
+          "value": "split",
+          "label": "Split image and text"
+        },
+        {
+          "value": "logo_centered",
+          "label": "Centered logo"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Content"
@@ -216,6 +373,77 @@
     },
     {
       "type": "image_picker",
+      "id": "hero_logo",
+      "label": "Hero logo"
+    },
+    {
+      "type": "text",
+      "id": "hero_logo_alt",
+      "label": "Hero logo alt text",
+      "default": "Wonderfae"
+    },
+    {
+      "type": "range",
+      "id": "logo_width_desktop",
+      "min": 300,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "label": "Logo width desktop",
+      "default": 760
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "min": 220,
+      "max": 520,
+      "step": 20,
+      "unit": "px",
+      "label": "Logo width mobile",
+      "default": 360
+    },
+    {
+      "type": "range",
+      "id": "logo_spacing_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Logo bottom spacing",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "centered_content_width",
+      "min": 500,
+      "max": 1100,
+      "step": 20,
+      "unit": "px",
+      "label": "Centered content width",
+      "default": 900
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "label": "Button alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
       "id": "image",
       "label": "Hero image"
     },
@@ -250,6 +478,30 @@
     {
       "type": "header",
       "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo_mode_eyebrow",
+      "label": "Show eyebrow in centered logo layout",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo_mode_heading",
+      "label": "Show heading in centered logo layout",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo_mode_divider",
+      "label": "Show divider in centered logo layout",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo_mode_chapter_text",
+      "label": "Show chapter text in centered logo layout",
+      "default": false
     },
     {
       "type": "checkbox",

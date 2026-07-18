@@ -57,6 +57,14 @@
   z-index: 2;
 }
 
+.wonderfae-hero--logo-centered .wonderfae-hero__container {
+  display: block;
+}
+
+.wonderfae-hero__container--centered {
+  max-width: var(--wonderfae-hero-centered-content-width);
+}
+
 .wonderfae-hero--image-left .wonderfae-hero__content {
   order: 2;
 }
@@ -68,6 +76,11 @@
 .wonderfae-hero__content {
   position: relative;
   text-align: center;
+}
+
+.wonderfae-hero__content--centered {
+  margin-inline: auto;
+  max-width: var(--wonderfae-hero-centered-content-width);
 }
 
 .wonderfae-hero__eyebrow {
@@ -90,6 +103,30 @@
   line-height: 0.94;
   margin: clamp(0.85rem, 0.7rem + 0.35vw, 1.1rem) 0 clamp(1.35rem, 1rem + 1vw, 2.15rem);
   text-shadow: 0 1px 0 rgb(255 249 236 / 85%);
+}
+
+.wonderfae-hero__wordmark--fallback {
+  margin-bottom: var(--wonderfae-hero-logo-spacing-bottom);
+}
+
+.wonderfae-hero__wordmark--logo-mode {
+  font-size: clamp(2.8rem, 1.8rem + 4.2vw, 5.8rem);
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.wonderfae-hero__logo-wrap {
+  margin: 0 auto var(--wonderfae-hero-logo-spacing-bottom);
+  max-width: min(88vw, var(--wonderfae-hero-logo-width-desktop));
+  width: 100%;
+}
+
+.wonderfae-hero__logo-image {
+  display: block;
+  height: auto;
+  margin-inline: auto;
+  max-width: 100%;
+  object-fit: contain;
+  width: 100%;
 }
 
 .wonderfae-hero__divider {
@@ -130,11 +167,28 @@
   max-width: 32rem;
 }
 
+.wonderfae-hero--logo-centered .wonderfae-hero__intro {
+  max-width: min(38rem, 100%);
+}
+
 .wonderfae-hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
   justify-content: center;
+}
+
+.wonderfae-hero--buttons-left .wonderfae-hero__actions {
+  justify-content: flex-start;
+}
+
+.wonderfae-hero--buttons-right .wonderfae-hero__actions {
+  justify-content: flex-end;
+}
+
+.wonderfae-hero--logo-centered .wonderfae-hero__actions {
+  margin-inline: auto;
+  max-width: min(42rem, 100%);
 }
 
 .wonderfae-hero__button {
@@ -238,10 +292,20 @@
   top: -2.7rem;
 }
 
+.wonderfae-hero--logo-centered .wonderfae-hero__sprig--top {
+  right: max(1rem, calc((100vw - var(--wonderfae-hero-centered-content-width)) / 2 - 3.5rem));
+  top: clamp(1.8rem, 5vw, 4.2rem);
+}
+
 .wonderfae-hero__sprig--lower {
   bottom: 2.8rem;
   left: max(1rem, calc((100vw - var(--wonderfae-hero-container)) / 2));
   opacity: 0.72;
+}
+
+.wonderfae-hero--logo-centered .wonderfae-hero__sprig--lower {
+  bottom: clamp(2.2rem, 5vw, 4.4rem);
+  left: max(1rem, calc((100vw - var(--wonderfae-hero-centered-content-width)) / 2 - 3.5rem));
 }
 
 .wonderfae-hero__sprig-stem {
@@ -314,11 +378,16 @@
 }
 
 .wonderfae-hero--animations .wonderfae-hero__eyebrow,
+.wonderfae-hero--animations .wonderfae-hero__logo-wrap,
 .wonderfae-hero--animations .wonderfae-hero__wordmark,
 .wonderfae-hero--animations .wonderfae-hero__divider,
 .wonderfae-hero--animations .wonderfae-hero__intro,
 .wonderfae-hero--animations .wonderfae-hero__actions {
   animation: wonderfae-hero-soft-reveal 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.wonderfae-hero--animations .wonderfae-hero__logo-wrap {
+  animation-delay: 0.12s;
 }
 
 .wonderfae-hero--animations .wonderfae-hero__wordmark {
@@ -431,6 +500,19 @@
 
   .wonderfae-hero__sprig--lower {
     display: none;
+  }
+
+  .wonderfae-hero--logo-centered .wonderfae-hero__container {
+    display: block;
+  }
+
+  .wonderfae-hero--logo-centered .wonderfae-hero__logo-wrap {
+    max-width: min(88vw, var(--wonderfae-hero-logo-width-mobile));
+  }
+
+  .wonderfae-hero--logo-centered .wonderfae-hero__sprig--top {
+    right: 1rem;
+    top: 1.4rem;
   }
 }
 
