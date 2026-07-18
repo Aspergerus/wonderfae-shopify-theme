@@ -1,32 +1,34 @@
 .wonderfae-footer {
-  --wonderfae-footer-bg: #38251b;
-  --wonderfae-footer-bg-soft: #593a28;
+  --wonderfae-footer-bg: #e8dcc0;
+  --wonderfae-footer-bg-soft: #f7efdd;
   --wonderfae-footer-cream: #f7efdd;
   --wonderfae-footer-parchment: #e8dcc0;
-  --wonderfae-footer-ink-soft: #d9c9ad;
-  --wonderfae-footer-moss: #a7b092;
+  --wonderfae-footer-walnut: #593a28;
+  --wonderfae-footer-walnut-deep: #38251b;
+  --wonderfae-footer-ink-soft: #665246;
+  --wonderfae-footer-moss: #657257;
   --wonderfae-footer-gold: #ad8750;
   --wonderfae-footer-border: rgb(173 135 80 / 42%);
-  --wonderfae-footer-shadow: 0 -1rem 3rem rgb(56 37 27 / 12%);
+  --wonderfae-footer-shadow: 0 -0.7rem 2rem rgb(56 37 27 / 7%);
 
   background:
-    radial-gradient(circle at 12% 0%, rgb(173 135 80 / 16%) 0, transparent 32%),
-    radial-gradient(circle at 86% 18%, rgb(247 239 221 / 8%) 0, transparent 38%),
+    radial-gradient(circle at 14% 0%, rgb(255 246 220 / 58%) 0, transparent 34%),
+    radial-gradient(circle at 86% 18%, rgb(173 135 80 / 10%) 0, transparent 40%),
     linear-gradient(180deg, var(--wonderfae-footer-bg-soft), var(--wonderfae-footer-bg));
   border-top: 1px solid var(--wonderfae-footer-border);
   box-shadow: var(--wonderfae-footer-shadow);
-  color: var(--wonderfae-footer-ink-soft);
+  color: var(--wonderfae-footer-walnut-deep);
 }
 
 .wonderfae-footer.gradient {
   background:
-    radial-gradient(circle at 12% 0%, rgb(173 135 80 / 16%) 0, transparent 32%),
-    radial-gradient(circle at 86% 18%, rgb(247 239 221 / 8%) 0, transparent 38%),
+    radial-gradient(circle at 14% 0%, rgb(255 246 220 / 58%) 0, transparent 34%),
+    radial-gradient(circle at 86% 18%, rgb(173 135 80 / 10%) 0, transparent 40%),
     linear-gradient(180deg, var(--wonderfae-footer-bg-soft), var(--wonderfae-footer-bg));
 }
 
 .wonderfae-footer .footer__content-top {
-  padding-bottom: clamp(2.8rem, 6vw, 5rem);
+  padding-bottom: clamp(3.2rem, 6vw, 5.2rem);
 }
 
 .wonderfae-footer .footer__blocks-wrapper {
@@ -37,7 +39,7 @@
 .wonderfae-footer .footer-block__heading,
 .wonderfae-footer .footer-block__heading.rte,
 .wonderfae-footer .footer-block__brand-info .footer-block__heading {
-  color: var(--wonderfae-footer-cream);
+  color: var(--wonderfae-footer-walnut-deep);
   font-family: Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: clamp(1.25rem, 1.05rem + 0.65vw, 1.75rem);
   font-weight: 400;
@@ -109,7 +111,7 @@
 }
 
 .wonderfae-footer .footer__payment {
-  opacity: 0.82;
+  opacity: 0.72;
 }
 
 .wonderfae-footer .list-payment {
@@ -137,7 +139,7 @@
 }
 
 .wonderfae-footer .footer__follow-on-shop {
-  color: var(--wonderfae-footer-ink-soft);
+  color: var(--wonderfae-footer-walnut);
 }
 
 .wonderfae-footer .localization-form,
@@ -157,20 +159,20 @@
 }
 
 .wonderfae-footer .disclosure__link {
-  color: var(--wonderfae-footer-bg);
+  color: var(--wonderfae-footer-walnut-deep);
 }
 
 .wonderfae-footer .footer__newsletter .field__input {
   background: rgb(247 239 221 / 94%);
-  color: var(--wonderfae-footer-bg);
+  color: var(--wonderfae-footer-walnut-deep);
 }
 
 .wonderfae-footer .footer__newsletter .field__label {
-  color: var(--wonderfae-footer-bg-soft);
+  color: var(--wonderfae-footer-walnut);
 }
 
 .wonderfae-footer .newsletter-form__button {
-  color: var(--wonderfae-footer-bg);
+  color: var(--wonderfae-footer-walnut-deep);
 }
 
 .wonderfae-footer .focus-inset:focus-visible,
@@ -179,7 +181,7 @@
 .wonderfae-footer .localization-form__select:focus-visible,
 .wonderfae-footer .disclosure__button:focus-visible {
   box-shadow:
-    0 0 0 0.18rem var(--wonderfae-footer-bg),
+    0 0 0 0.18rem var(--wonderfae-footer-cream),
     0 0 0 0.34rem var(--wonderfae-footer-moss);
   outline: 0;
 }
