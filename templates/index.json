@@ -53,7 +53,7 @@
         "keepsake_note": "Every mouse arrives with a handwritten keepsake card.",
         "show_divider": false,
         "show_botanical_ornament": true,
-        "show_cta": true,
+        "show_cta": false,
         "cta_label": "Discover the craft",
         "cta_link": "",
         "desktop_side_position": "left",
