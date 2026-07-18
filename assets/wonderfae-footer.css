@@ -1,19 +1,21 @@
 .wonderfae-footer {
-  --wonderfae-footer-bg: #e8dcc0;
-  --wonderfae-footer-bg-soft: #f7efdd;
-  --wonderfae-footer-cream: #f7efdd;
-  --wonderfae-footer-parchment: #e8dcc0;
-  --wonderfae-footer-walnut: #593a28;
-  --wonderfae-footer-walnut-deep: #38251b;
-  --wonderfae-footer-ink-soft: #665246;
-  --wonderfae-footer-moss: #657257;
-  --wonderfae-footer-gold: #ad8750;
-  --wonderfae-footer-border: rgb(173 135 80 / 42%);
-  --wonderfae-footer-shadow: 0 -0.7rem 2rem rgb(56 37 27 / 7%);
+  --wonderfae-footer-bg: #F1E6CC;
+  --wonderfae-footer-bg-soft: #F8F1E2;
+  --wonderfae-footer-cream: #F8F1E2;
+  --wonderfae-footer-parchment: #F1E6CC;
+  --wonderfae-footer-walnut: #675444;
+  --wonderfae-footer-walnut-deep: #294A63;
+  --wonderfae-footer-ink-soft: #49677A;
+  --wonderfae-footer-moss: #A8B1A1;
+  --wonderfae-footer-forget-me-not: #6F96BE;
+  --wonderfae-footer-forget-me-not-deep: #547EA6;
+  --wonderfae-footer-gold: #B68A4A;
+  --wonderfae-footer-border: rgb(182 138 74 / 42%);
+  --wonderfae-footer-shadow: 0 -0.7rem 2rem rgb(103 84 68 / 7%);
 
   background:
-    radial-gradient(circle at 14% 0%, rgb(255 246 220 / 58%) 0, transparent 34%),
-    radial-gradient(circle at 86% 18%, rgb(173 135 80 / 10%) 0, transparent 40%),
+    radial-gradient(circle at 14% 0%, rgb(248 241 226 / 58%) 0, transparent 34%),
+    radial-gradient(circle at 86% 18%, rgb(182 138 74 / 10%) 0, transparent 40%),
     linear-gradient(180deg, var(--wonderfae-footer-bg-soft), var(--wonderfae-footer-bg));
   border-top: 1px solid var(--wonderfae-footer-border);
   box-shadow: var(--wonderfae-footer-shadow);
@@ -22,8 +24,8 @@
 
 .wonderfae-footer.gradient {
   background:
-    radial-gradient(circle at 14% 0%, rgb(255 246 220 / 58%) 0, transparent 34%),
-    radial-gradient(circle at 86% 18%, rgb(173 135 80 / 10%) 0, transparent 40%),
+    radial-gradient(circle at 14% 0%, rgb(248 241 226 / 58%) 0, transparent 34%),
+    radial-gradient(circle at 86% 18%, rgb(182 138 74 / 10%) 0, transparent 40%),
     linear-gradient(180deg, var(--wonderfae-footer-bg-soft), var(--wonderfae-footer-bg));
 }
 
@@ -86,7 +88,7 @@
 .wonderfae-footer .footer-block__details-content .list-menu__item--link:hover,
 .wonderfae-footer .policies li a:hover,
 .wonderfae-footer .copyright__content a:hover {
-  color: var(--wonderfae-footer-moss);
+  color: var(--wonderfae-footer-walnut-deep);
   text-decoration: underline;
   text-decoration-color: var(--wonderfae-footer-gold);
   text-decoration-thickness: 1px;
@@ -134,12 +136,12 @@
 }
 
 .wonderfae-footer .list-social__link:hover {
-  color: var(--wonderfae-footer-moss);
+  color: var(--wonderfae-footer-forget-me-not-deep);
   transform: translateY(-1px);
 }
 
 .wonderfae-footer .footer__follow-on-shop {
-  color: var(--wonderfae-footer-walnut);
+  color: var(--wonderfae-footer-ink-soft);
 }
 
 .wonderfae-footer .localization-form,
@@ -163,12 +165,12 @@
 }
 
 .wonderfae-footer .footer__newsletter .field__input {
-  background: rgb(247 239 221 / 94%);
+  background: rgb(248 241 226 / 94%);
   color: var(--wonderfae-footer-walnut-deep);
 }
 
 .wonderfae-footer .footer__newsletter .field__label {
-  color: var(--wonderfae-footer-walnut);
+  color: var(--wonderfae-footer-ink-soft);
 }
 
 .wonderfae-footer .newsletter-form__button {
@@ -182,7 +184,7 @@
 .wonderfae-footer .disclosure__button:focus-visible {
   box-shadow:
     0 0 0 0.18rem var(--wonderfae-footer-cream),
-    0 0 0 0.34rem var(--wonderfae-footer-moss);
+    0 0 0 0.34rem var(--wonderfae-footer-walnut-deep);
   outline: 0;
 }
 

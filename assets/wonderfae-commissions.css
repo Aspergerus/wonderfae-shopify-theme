@@ -2,12 +2,14 @@
   --wonderfae-commissions-display-font: Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --wonderfae-commissions-body-font: Georgia, "Times New Roman", serif;
   --wonderfae-commissions-accent-font: "Palatino Linotype", Baskerville, Georgia, serif;
-  --wonderfae-commissions-border: 1px solid rgb(173 135 80 / 28%);
-  --wonderfae-commissions-shadow: 0 1rem 3rem rgb(56 37 27 / 10%);
+  --wonderfae-commissions-border: 1px solid rgb(182 138 74 / 28%);
+  --wonderfae-commissions-shadow: 0 1rem 3rem rgb(103 84 68 / 10%);
+  --wonderfae-commissions-forget-me-not: #6F96BE;
+  --wonderfae-commissions-forget-me-not-deep: #547EA6;
 
   background:
-    radial-gradient(circle at 18% 12%, rgb(255 246 220 / 58%) 0, transparent 34%),
-    radial-gradient(circle at 78% 30%, rgb(173 135 80 / 10%) 0, transparent 42%),
+    radial-gradient(circle at 18% 12%, rgb(248 241 226 / 58%) 0, transparent 34%),
+    radial-gradient(circle at 78% 30%, rgb(182 138 74 / 10%) 0, transparent 42%),
     var(--wonderfae-commissions-bg);
   color: var(--wonderfae-commissions-ink);
   overflow: clip;
@@ -33,7 +35,7 @@
 }
 
 .wonderfae-commissions__eyebrow {
-  color: var(--wonderfae-commissions-moss);
+  color: var(--wonderfae-commissions-ink);
   font-family: var(--wonderfae-commissions-accent-font);
   font-size: clamp(0.68rem, 0.64rem + 0.18vw, 0.78rem);
   font-style: italic;
@@ -104,7 +106,7 @@
 
 .wonderfae-commissions__button {
   align-items: center;
-  border: 1px solid var(--wonderfae-commissions-walnut);
+  border: 1px solid var(--wonderfae-commissions-ink);
   display: inline-flex;
   font-family: var(--wonderfae-commissions-accent-font);
   font-size: 0.77rem;
@@ -128,7 +130,7 @@
 .wonderfae-commissions__button:focus-visible {
   box-shadow:
     0 0 0 0.18rem var(--wonderfae-commissions-card-bg),
-    0 0 0 0.34rem var(--wonderfae-commissions-moss);
+    0 0 0 0.34rem var(--wonderfae-commissions-ink);
   outline: 0;
 }
 
@@ -138,28 +140,28 @@
 }
 
 .wonderfae-commissions__button--primary {
-  background: var(--wonderfae-commissions-walnut);
+  background: var(--wonderfae-commissions-ink);
   color: var(--wonderfae-commissions-cream);
 }
 
 .wonderfae-commissions__button--primary[href]:hover {
-  background: var(--wonderfae-commissions-walnut-deep);
+  background: var(--wonderfae-commissions-forget-me-not-deep);
   color: var(--wonderfae-commissions-cream);
 }
 
 .wonderfae-commissions__button--secondary {
-  background: rgb(247 239 221 / 45%);
-  color: var(--wonderfae-commissions-walnut);
+  background: rgb(248 241 226 / 45%);
+  color: var(--wonderfae-commissions-ink);
 }
 
 .wonderfae-commissions__button--secondary[href]:hover {
-  background: rgb(89 58 40 / 6%);
-  color: var(--wonderfae-commissions-walnut);
+  background: rgb(41 74 99 / 6%);
+  color: var(--wonderfae-commissions-ink);
 }
 
 .wonderfae-commissions__note {
   border-top: 1px solid var(--wonderfae-commissions-gold);
-  color: var(--wonderfae-commissions-moss);
+  color: var(--wonderfae-commissions-ink);
   font-family: var(--wonderfae-commissions-accent-font);
   font-size: 0.82rem;
   font-style: italic;

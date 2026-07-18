@@ -2,11 +2,13 @@
   --wonderfae-how-it-works-display-font: Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --wonderfae-how-it-works-body-font: Georgia, "Times New Roman", serif;
   --wonderfae-how-it-works-accent-font: "Palatino Linotype", Baskerville, Georgia, serif;
-  --wonderfae-how-it-works-border: 1px solid rgb(173 135 80 / 42%);
+  --wonderfae-how-it-works-border: 1px solid rgb(182 138 74 / 42%);
+  --wonderfae-how-it-works-forget-me-not: #6F96BE;
+  --wonderfae-how-it-works-forget-me-not-deep: #547EA6;
 
   background:
-    radial-gradient(circle at 18% 10%, rgb(255 246 220 / 56%) 0, transparent 34%),
-    radial-gradient(circle at 84% 24%, rgb(173 135 80 / 9%) 0, transparent 40%),
+    radial-gradient(circle at 18% 10%, rgb(248 241 226 / 56%) 0, transparent 34%),
+    radial-gradient(circle at 84% 24%, rgb(182 138 74 / 9%) 0, transparent 40%),
     linear-gradient(115deg, var(--wonderfae-how-it-works-cream) 0%, transparent 48%),
     var(--wonderfae-how-it-works-bg);
   color: var(--wonderfae-how-it-works-ink);
@@ -28,7 +30,7 @@
 }
 
 .wonderfae-how-it-works__eyebrow {
-  color: var(--wonderfae-how-it-works-moss);
+  color: var(--wonderfae-how-it-works-ink);
   font-family: var(--wonderfae-how-it-works-accent-font);
   font-size: clamp(0.68rem, 0.64rem + 0.18vw, 0.78rem);
   font-style: italic;

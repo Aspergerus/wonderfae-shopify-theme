@@ -2,12 +2,14 @@
   --wonderfae-archive-display-font: Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --wonderfae-archive-body-font: Georgia, "Times New Roman", serif;
   --wonderfae-archive-accent-font: "Palatino Linotype", Baskerville, Georgia, serif;
-  --wonderfae-archive-border: 1px solid rgb(89 58 40 / 20%);
-  --wonderfae-archive-shadow: 0 1rem 2.6rem rgb(56 37 27 / 9%);
+  --wonderfae-archive-border: 1px solid rgb(182 138 74 / 34%);
+  --wonderfae-archive-shadow: 0 1rem 2.6rem rgb(103 84 68 / 9%);
+  --wonderfae-archive-forget-me-not: #6F96BE;
+  --wonderfae-archive-forget-me-not-deep: #547EA6;
 
   background:
-    radial-gradient(circle at 20% 12%, rgb(255 246 220 / 48%) 0, transparent 33%),
-    linear-gradient(115deg, rgb(255 247 226 / 30%), transparent 45%),
+    radial-gradient(circle at 20% 12%, rgb(248 241 226 / 48%) 0, transparent 33%),
+    linear-gradient(115deg, rgb(248 241 226 / 30%), transparent 45%),
     var(--wonderfae-archive-bg);
   color: var(--wonderfae-archive-ink);
   overflow: clip;
@@ -28,7 +30,7 @@
 }
 
 .wonderfae-archive__eyebrow {
-  color: var(--wonderfae-archive-moss);
+  color: var(--wonderfae-archive-ink);
   font-family: var(--wonderfae-archive-accent-font);
   font-size: clamp(0.68rem, 0.64rem + 0.18vw, 0.78rem);
   font-style: italic;
@@ -138,7 +140,7 @@
 
 .wonderfae-archive__card:hover,
 .wonderfae-archive__card:focus-within {
-  box-shadow: 0 1.2rem 2.8rem rgb(56 37 27 / 12%);
+  box-shadow: 0 1.2rem 2.8rem rgb(103 84 68 / 12%);
   opacity: 1;
   transform: translateY(-4px);
 }
@@ -157,7 +159,7 @@
 .wonderfae-archive__button:focus-visible {
   box-shadow:
     0 0 0 0.18rem var(--wonderfae-archive-bg),
-    0 0 0 0.34rem var(--wonderfae-archive-moss);
+    0 0 0 0.34rem var(--wonderfae-archive-ink);
   outline: 0;
 }
 
@@ -171,8 +173,8 @@
 }
 
 .wonderfae-archive__placeholder {
-  background: rgb(89 58 40 / 5%);
-  color: rgb(89 58 40 / 20%);
+  background: rgb(41 74 99 / 5%);
+  color: rgb(73 103 122 / 24%);
 }
 
 .wonderfae-archive__card:hover .wonderfae-archive__image,
@@ -196,7 +198,7 @@
 }
 
 .wonderfae-archive__collection-label {
-  color: var(--wonderfae-archive-moss);
+  color: var(--wonderfae-archive-ink);
   font-size: 0.67rem;
   letter-spacing: 0.2em;
   line-height: 1.35;
@@ -206,7 +208,7 @@
 
 .wonderfae-archive__status {
   border: 1px solid color-mix(in srgb, var(--wonderfae-archive-gold) 35%, transparent);
-  color: var(--wonderfae-archive-walnut);
+  color: var(--wonderfae-archive-ink);
   flex: 0 0 auto;
   font-size: 0.62rem;
   letter-spacing: 0.14em;
@@ -269,7 +271,7 @@
 
 .wonderfae-archive__price,
 .wonderfae-archive__sold-label {
-  color: var(--wonderfae-archive-walnut);
+  color: var(--wonderfae-archive-ink);
   font-size: 1.04rem;
 }
 
@@ -316,8 +318,8 @@
 
 .wonderfae-archive__button {
   align-items: center;
-  background: var(--wonderfae-archive-walnut);
-  border: 1px solid var(--wonderfae-archive-walnut);
+  background: var(--wonderfae-archive-ink);
+  border: 1px solid var(--wonderfae-archive-ink);
   color: var(--wonderfae-archive-cream);
   display: inline-flex;
   font-family: var(--wonderfae-archive-accent-font);
@@ -335,7 +337,7 @@
 }
 
 .wonderfae-archive__button:hover {
-  background: var(--wonderfae-archive-walnut-deep);
+  background: var(--wonderfae-archive-forget-me-not-deep);
   color: var(--wonderfae-archive-cream);
   transform: translateY(-2px);
 }
