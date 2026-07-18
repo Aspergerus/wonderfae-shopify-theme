@@ -144,12 +144,45 @@
         "moss_color": "#657257",
         "gold_color": "#ad8750"
       }
+    },
+    "wonderfae_commissions_PKnK3T": {
+      "type": "wonderfae-commissions",
+      "name": "Wonderfae commissions",
+      "settings": {
+        "section_anchor": "commissions",
+        "eyebrow": "Contact and enquiries",
+        "heading": "Ask about an available mouse or a photo-inspired commission.",
+        "heading_tag": "h2",
+        "body": "<p>Wonderfae welcomes enquiries about available companions, seasonal ideas, gift vouchers and photo-inspired commissions. Reference photos are welcome. Customer-owned antiques are not accepted for use in the work.</p>",
+        "show_divider": false,
+        "primary_button_label": "Email Wonderfae",
+        "primary_button_link": "",
+        "show_secondary_button": true,
+        "secondary_button_label": "Browse the archive",
+        "secondary_button_link": "",
+        "show_accent_note": true,
+        "accent_note": "Photo references only; customer-owned antiques stay safely with you.",
+        "enable_animations": true,
+        "max_width": 1000,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "background_color": "#e8dcc0",
+        "card_background_color": "#f7efdd",
+        "cream_color": "#f7efdd",
+        "walnut_color": "#593a28",
+        "walnut_deep_color": "#38251b",
+        "ink_color": "#382d27",
+        "ink_soft_color": "#665246",
+        "moss_color": "#657257",
+        "gold_color": "#ad8750"
+      }
     }
   },
   "order": [
     "wonderfae_hero_MXQ9d9",
     "image-with-text",
     "image-with-text-1",
-    "wonderfae_featured_collection_VFAhDA"
+    "wonderfae_featured_collection_VFAhDA",
+    "wonderfae_commissions_PKnK3T"
   ]
 }
