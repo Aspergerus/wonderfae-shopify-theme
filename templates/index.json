@@ -78,6 +78,7 @@
       "type": "wonderfae-featured-collection",
       "name": "Wonderfae collection",
       "settings": {
+        "section_anchor": "available",
         "collection": "available-companions",
         "products_to_show": 3,
         "eyebrow": "Available companions",
@@ -94,7 +95,7 @@
         "product_link_label": "View piece",
         "empty_text": "Choose a collection to feature available companions.",
         "cta_label": "Enquire About a Mouse",
-        "cta_link": "",
+        "cta_link": "#commissions",
         "show_view_all": false,
         "view_all_label": "View all companions",
         "enable_animations": true,
