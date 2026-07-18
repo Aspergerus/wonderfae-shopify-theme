@@ -125,7 +125,7 @@
         "primary_button_link": "",
         "show_secondary_button": true,
         "secondary_button_label": "Browse the archive",
-        "secondary_button_link": "",
+        "secondary_button_link": "#archive",
         "show_accent_note": true,
         "accent_note": "Photo references only; customer-owned antiques stay safely with you.",
         "enable_animations": true,
