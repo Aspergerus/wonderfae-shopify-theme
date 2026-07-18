@@ -5,6 +5,7 @@
   assign featured_collection = section.settings.collection
   assign products_to_show = section.settings.products_to_show
   assign product_count = 0
+  assign section_anchor = section.settings.section_anchor | default: 'available' | handleize
 
   if featured_collection != blank
     assign product_count = featured_collection.all_products_count | at_most: products_to_show
@@ -15,7 +16,7 @@
 
 <section
   class="wonderfae-featured-collection wonderfae-featured-collection--count-{{ product_count }}{% if section.settings.enable_animations %} wonderfae-featured-collection--animations{% endif %}"
-  id="wonderfae-featured-collection-{{ section.id }}"
+  id="{{ section_anchor }}"
   style="
     --wonderfae-featured-collection-padding-top: {{ section.settings.padding_top }}px;
     --wonderfae-featured-collection-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -194,6 +195,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor",
+      "label": "Section anchor",
+      "default": "available"
+    },
     {
       "type": "collection",
       "id": "collection",
