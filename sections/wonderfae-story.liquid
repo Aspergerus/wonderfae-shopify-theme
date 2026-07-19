@@ -5,6 +5,15 @@
   assign section_anchor = section.settings.section_anchor | default: 'story' | handleize
   assign desktop_side_position = section.settings.desktop_side_position | default: 'left'
   assign mobile_order = section.settings.mobile_order | default: 'content_first'
+  assign side_content_type = section.settings.side_content_type | default: 'note'
+  assign story_image_shape = section.settings.story_image_shape | default: 'portrait'
+  assign render_story_side = true
+
+  if side_content_type == 'image' and section.settings.story_image == blank
+    unless request.design_mode
+      assign render_story_side = false
+    endunless
+  endif
 -%}
 
 <section
@@ -14,6 +23,7 @@
     --wonderfae-story-padding-top: {{ section.settings.padding_top }}px;
     --wonderfae-story-padding-bottom: {{ section.settings.padding_bottom }}px;
     --wonderfae-story-max-width: {{ section.settings.max_width }}px;
+    --wonderfae-story-image-max-width: {{ section.settings.story_image_max_width }}px;
     --wonderfae-story-bg: {{ section.settings.background_color }};
     --wonderfae-story-card-bg: {{ section.settings.card_background_color }};
     --wonderfae-story-cream: {{ section.settings.cream_color }};
@@ -28,21 +38,77 @@
 >
   <div class="wonderfae-story__container">
     <div class="wonderfae-story__layout">
-      <aside class="wonderfae-story__keepsake" aria-label="Keepsake note">
-        {%- if section.settings.show_botanical_ornament -%}
-          <span class="wonderfae-story__sprig" aria-hidden="true">
-            <span class="wonderfae-story__sprig-stem"></span>
-            <span class="wonderfae-story__sprig-leaf wonderfae-story__sprig-leaf--one"></span>
-            <span class="wonderfae-story__sprig-leaf wonderfae-story__sprig-leaf--two"></span>
-            <span class="wonderfae-story__sprig-leaf wonderfae-story__sprig-leaf--three"></span>
-            <span class="wonderfae-story__sprig-flower"></span>
-          </span>
-        {%- endif -%}
+      {%- if render_story_side -%}
+        <div class="wonderfae-story__side">
+          {%- if side_content_type == 'image' -%}
+            {%- if section.settings.story_image != blank -%}
+              {%- liquid
+                assign story_image_alt = section.settings.story_image_alt | default: 'Wonderfae creator' | escape
+                assign story_image_width = section.settings.story_image_max_width | default: 380
+                assign story_image_sizes = '(min-width: 990px) min(38vw, ' | append: story_image_width | append: 'px), min(100vw - 2.5rem, ' | append: story_image_width | append: 'px)'
+                assign show_story_image_caption = false
 
-        {%- if section.settings.keepsake_note != blank -%}
-          <p class="wonderfae-story__keepsake-text">{{ section.settings.keepsake_note | escape }}</p>
-        {%- endif -%}
-      </aside>
+                if section.settings.show_story_image_caption and section.settings.story_image_caption != blank
+                  assign show_story_image_caption = true
+                endif
+              -%}
+
+              {%- if show_story_image_caption -%}
+                <figure class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
+                  {{
+                    section.settings.story_image
+                    | image_url: width: 900
+                    | image_tag:
+                      class: 'wonderfae-story__image',
+                      widths: '260, 320, 380, 440, 520, 680, 900',
+                      sizes: story_image_sizes,
+                      loading: 'lazy',
+                      alt: story_image_alt
+                  }}
+                  <figcaption class="wonderfae-story__image-caption">
+                    {{ section.settings.story_image_caption | escape }}
+                  </figcaption>
+                </figure>
+              {%- else -%}
+                <div class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
+                  {{
+                    section.settings.story_image
+                    | image_url: width: 900
+                    | image_tag:
+                      class: 'wonderfae-story__image',
+                      widths: '260, 320, 380, 440, 520, 680, 900',
+                      sizes: story_image_sizes,
+                      loading: 'lazy',
+                      alt: story_image_alt
+                  }}
+                </div>
+              {%- endif -%}
+            {%- elsif request.design_mode -%}
+              <div class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
+                <div class="wonderfae-story__image-placeholder">
+                  Add a creator photo in the Story section settings.
+                </div>
+              </div>
+            {%- endif -%}
+          {%- else -%}
+            <aside class="wonderfae-story__keepsake" aria-label="Keepsake note">
+              {%- if section.settings.show_botanical_ornament -%}
+                <span class="wonderfae-story__sprig" aria-hidden="true">
+                  <span class="wonderfae-story__sprig-stem"></span>
+                  <span class="wonderfae-story__sprig-leaf wonderfae-story__sprig-leaf--one"></span>
+                  <span class="wonderfae-story__sprig-leaf wonderfae-story__sprig-leaf--two"></span>
+                  <span class="wonderfae-story__sprig-leaf wonderfae-story__sprig-leaf--three"></span>
+                  <span class="wonderfae-story__sprig-flower"></span>
+                </span>
+              {%- endif -%}
+
+              {%- if section.settings.keepsake_note != blank -%}
+                <p class="wonderfae-story__keepsake-text">{{ section.settings.keepsake_note | escape }}</p>
+              {%- endif -%}
+            </aside>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
 
       <div class="wonderfae-story__content">
         {%- if section.settings.eyebrow != blank -%}
@@ -153,6 +219,71 @@
       "id": "keepsake_note",
       "label": "Keepsake note",
       "default": "Every mouse arrives with a handwritten keepsake card."
+    },
+    {
+      "type": "select",
+      "id": "side_content_type",
+      "label": "Side content",
+      "default": "note",
+      "options": [
+        {
+          "value": "note",
+          "label": "Keepsake note"
+        },
+        {
+          "value": "image",
+          "label": "Creator photo"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image",
+      "label": "Creator photo"
+    },
+    {
+      "type": "text",
+      "id": "story_image_alt",
+      "label": "Creator photo alt text",
+      "default": "Wonderfae creator"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_story_image_caption",
+      "label": "Show image caption",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "story_image_caption",
+      "label": "Image caption",
+      "default": "Handmade with care in the Wonderfae studio"
+    },
+    {
+      "type": "range",
+      "id": "story_image_max_width",
+      "min": 260,
+      "max": 520,
+      "step": 10,
+      "unit": "px",
+      "label": "Image maximum width",
+      "default": 380
+    },
+    {
+      "type": "select",
+      "id": "story_image_shape",
+      "label": "Image shape",
+      "default": "portrait",
+      "options": [
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "soft_rectangle",
+          "label": "Soft rectangle"
+        }
+      ]
     },
     {
       "type": "checkbox",

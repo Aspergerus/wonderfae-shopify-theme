@@ -34,12 +34,19 @@
   max-width: var(--wonderfae-story-max-width);
 }
 
-.wonderfae-story--side-right .wonderfae-story__keepsake {
+.wonderfae-story--side-right .wonderfae-story__side {
   order: 2;
 }
 
 .wonderfae-story--side-right .wonderfae-story__content {
   order: 1;
+}
+
+.wonderfae-story__side {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
 }
 
 .wonderfae-story__keepsake {
@@ -56,6 +63,7 @@
   padding: clamp(2rem, 4vw, 3.5rem);
   position: relative;
   text-align: center;
+  width: 100%;
 }
 
 .wonderfae-story__keepsake::before,
@@ -83,6 +91,66 @@
 
 .wonderfae-story__keepsake-text {
   margin: 0;
+}
+
+.wonderfae-story__image-frame {
+  background:
+    linear-gradient(145deg, rgb(255 255 255 / 26%), transparent 58%),
+    var(--wonderfae-story-card-bg);
+  border: var(--wonderfae-story-border);
+  box-shadow: var(--wonderfae-story-shadow);
+  margin: 0 auto;
+  max-width: min(100%, var(--wonderfae-story-image-max-width));
+  padding: clamp(0.55rem, 1vw, 0.8rem);
+  position: relative;
+  width: 100%;
+}
+
+.wonderfae-story__image-frame--portrait {
+  max-width: min(100%, var(--wonderfae-story-image-max-width));
+}
+
+.wonderfae-story__image-frame--soft_rectangle {
+  max-width: min(100%, var(--wonderfae-story-image-max-width));
+}
+
+.wonderfae-story__image {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.wonderfae-story__image-frame--portrait .wonderfae-story__image {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.wonderfae-story__image-frame--soft_rectangle .wonderfae-story__image {
+  object-fit: contain;
+}
+
+.wonderfae-story__image-caption {
+  color: var(--wonderfae-story-ink-soft);
+  font-family: var(--wonderfae-story-accent-font);
+  font-size: clamp(0.78rem, 0.74rem + 0.12vw, 0.86rem);
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0.85rem auto 0;
+  max-width: 24rem;
+  text-align: center;
+}
+
+.wonderfae-story__image-placeholder {
+  align-items: center;
+  aspect-ratio: 4 / 5;
+  color: var(--wonderfae-story-ink-soft);
+  display: flex;
+  font-family: var(--wonderfae-story-body-font);
+  font-size: 0.96rem;
+  justify-content: center;
+  line-height: 1.6;
+  padding: 1.5rem;
+  text-align: center;
 }
 
 .wonderfae-story__sprig {
@@ -255,7 +323,7 @@
   outline: 0;
 }
 
-.wonderfae-story--animations .wonderfae-story__keepsake,
+.wonderfae-story--animations .wonderfae-story__side,
 .wonderfae-story--animations .wonderfae-story__content {
   animation: wonderfae-story-reveal 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
@@ -264,7 +332,7 @@
   animation-delay: 120ms;
 }
 
-.wonderfae-story--side-right.wonderfae-story--animations .wonderfae-story__keepsake {
+.wonderfae-story--side-right.wonderfae-story--animations .wonderfae-story__side {
   animation-delay: 120ms;
 }
 
@@ -290,7 +358,7 @@
     gap: clamp(2rem, 8vw, 3.5rem);
   }
 
-  .wonderfae-story__keepsake,
+  .wonderfae-story__side,
   .wonderfae-story__content {
     order: initial;
   }
