@@ -237,15 +237,15 @@
         "enable_animations": true,
         "padding_top": 72,
         "padding_bottom": 76,
-        "background_color": "#f7efdd",
-        "card_background_color": "#f7efdd",
-        "cream_color": "#f7efdd",
-        "walnut_color": "#593a28",
-        "walnut_deep_color": "#38251b",
-        "ink_color": "#382d27",
-        "ink_soft_color": "#665246",
-        "moss_color": "#657257",
-        "gold_color": "#ad8750"
+        "background_color": "#F8F1E2",
+        "card_background_color": "#F8F1E2",
+        "cream_color": "#F8F1E2",
+        "walnut_color": "#675444",
+        "walnut_deep_color": "#294A63",
+        "ink_color": "#294A63",
+        "ink_soft_color": "#49677A",
+        "moss_color": "#A8B1A1",
+        "gold_color": "#B68A4A"
       }
     }
   },
