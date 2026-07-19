@@ -63,6 +63,13 @@
         "heading_tag": "h2",
         "body": "<p>Each Wonderfae companion begins as loose wool and slowly takes shape by hand. Every piece is individually felted, stitched and finished with its own expression, clothing and story.</p><p>Some companions are paired with genuine antique or vintage objects, chosen to feel as though they have always belonged together. These are keepsake pieces made for shelves, celebrations and the quieter rituals of home.</p>",
         "keepsake_note": "Every mouse arrives with a handwritten keepsake card.",
+        "side_content_type": "image",
+        "story_image": "shopify://shop_images/WhatsApp_Image_2026-05-16_at_20.24.11_5.jpg",
+        "story_image_alt": "Wonderfae creator",
+        "show_story_image_caption": false,
+        "story_image_caption": "Handmade with care in the Wonderfae studio",
+        "story_image_max_width": 380,
+        "story_image_shape": "portrait",
         "show_divider": false,
         "show_botanical_ornament": true,
         "show_cta": false,
@@ -74,16 +81,16 @@
         "max_width": 1000,
         "padding_top": 72,
         "padding_bottom": 72,
-        "background_color": "#F8F1E2",
+        "background_color": "#f8f1e2",
         "card_background_color": "#f7efdd",
-        "cream_color": "#F8F1E2",
+        "cream_color": "#f8f1e2",
         "walnut_color": "#675444",
-        "walnut_deep_color": "#294A63",
-        "ink_color": "#294A63",
-        "ink_soft_color": "#49677A",
-        "moss_color": "#A8B1A1",
-        "gold_color": "#B68A4A",
-        "blush_color": "#D4AAA2"
+        "walnut_deep_color": "#294a63",
+        "ink_color": "#294a63",
+        "ink_soft_color": "#49677a",
+        "moss_color": "#a8b1a1",
+        "gold_color": "#b68a4a",
+        "blush_color": "#d4aaa2"
       }
     },
     "wonderfae_how_it_works_BQ67g7": {
@@ -130,14 +137,14 @@
         "grid_width": 1060,
         "padding_top": 72,
         "padding_bottom": 72,
-        "background_color": "#F8F1E2",
-        "cream_color": "#F8F1E2",
+        "background_color": "#f8f1e2",
+        "cream_color": "#f8f1e2",
         "walnut_color": "#675444",
-        "walnut_deep_color": "#294A63",
-        "ink_color": "#294A63",
-        "ink_soft_color": "#49677A",
-        "moss_color": "#A8B1A1",
-        "gold_color": "#B68A4A"
+        "walnut_deep_color": "#294a63",
+        "ink_color": "#294a63",
+        "ink_soft_color": "#49677a",
+        "moss_color": "#a8b1a1",
+        "gold_color": "#b68a4a"
       }
     },
     "wonderfae_featured_collection_VFAhDA": {
@@ -167,15 +174,15 @@
         "enable_animations": true,
         "padding_top": 72,
         "padding_bottom": 76,
-        "background_color": "#F8F1E2",
-        "card_background_color": "#F8F1E2",
-        "cream_color": "#F8F1E2",
+        "background_color": "#f8f1e2",
+        "card_background_color": "#f8f1e2",
+        "cream_color": "#f8f1e2",
         "walnut_color": "#675444",
-        "walnut_deep_color": "#294A63",
-        "ink_color": "#294A63",
-        "ink_soft_color": "#49677A",
-        "moss_color": "#A8B1A1",
-        "gold_color": "#B68A4A"
+        "walnut_deep_color": "#294a63",
+        "ink_color": "#294a63",
+        "ink_soft_color": "#49677a",
+        "moss_color": "#a8b1a1",
+        "gold_color": "#b68a4a"
       }
     },
     "wonderfae_commissions_PKnK3T": {
@@ -199,15 +206,15 @@
         "max_width": 1000,
         "padding_top": 72,
         "padding_bottom": 72,
-        "background_color": "#F8F1E2",
-        "card_background_color": "#F8F1E2",
-        "cream_color": "#F8F1E2",
+        "background_color": "#f8f1e2",
+        "card_background_color": "#f8f1e2",
+        "cream_color": "#f8f1e2",
         "walnut_color": "#675444",
-        "walnut_deep_color": "#294A63",
-        "ink_color": "#294A63",
-        "ink_soft_color": "#49677A",
-        "moss_color": "#A8B1A1",
-        "gold_color": "#B68A4A"
+        "walnut_deep_color": "#294a63",
+        "ink_color": "#294a63",
+        "ink_soft_color": "#49677a",
+        "moss_color": "#a8b1a1",
+        "gold_color": "#b68a4a"
       }
     },
     "wonderfae_archive_9XWh6C": {
@@ -237,15 +244,15 @@
         "enable_animations": true,
         "padding_top": 72,
         "padding_bottom": 76,
-        "background_color": "#F8F1E2",
-        "card_background_color": "#F8F1E2",
-        "cream_color": "#F8F1E2",
+        "background_color": "#f8f1e2",
+        "card_background_color": "#f8f1e2",
+        "cream_color": "#f8f1e2",
         "walnut_color": "#675444",
-        "walnut_deep_color": "#294A63",
-        "ink_color": "#294A63",
-        "ink_soft_color": "#49677A",
-        "moss_color": "#A8B1A1",
-        "gold_color": "#B68A4A"
+        "walnut_deep_color": "#294a63",
+        "ink_color": "#294a63",
+        "ink_soft_color": "#49677a",
+        "moss_color": "#a8b1a1",
+        "gold_color": "#b68a4a"
       }
     }
   },
