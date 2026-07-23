@@ -103,8 +103,8 @@
     "drawer_shadow_blur": 5,
     "badge_position": "bottom left",
     "badge_corner_radius": 40,
-    "sale_badge_color_scheme": "scheme-3",
-    "sold_out_badge_color_scheme": "scheme-3",
+    "sale_badge_color_scheme": "scheme-1",
+    "sold_out_badge_color_scheme": "scheme-1",
     "brand_headline": "Wonderfae",
     "brand_description": "<p>Handmade needle-felted mice paired with genuine vintage treasures.</p>",
     "brand_image_width": 100,
@@ -144,9 +144,9 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#fcfcfc",
+          "background": "#F8F1E2",
           "background_gradient": "",
-          "text": "#103948",
+          "text": "#294A63",
           "button": "#103948",
           "button_label": "#fcfcfc",
           "secondary_button_label": "#052c46",

@@ -119,15 +119,15 @@
         "max_width": 1200,
         "padding_top": 72,
         "padding_bottom": 72,
-        "background_color": "#F8F1E2",
-        "surface_color": "#F8F1E2",
-        "ink_color": "#294A63",
-        "soft_ink_color": "#49677A",
-        "forget_me_not_color": "#6F96BE",
-        "antique_gold_color": "#B68A4A",
+        "background_color": "#f8f1e2",
+        "surface_color": "#f8f1e2",
+        "ink_color": "#294a63",
+        "soft_ink_color": "#49677a",
+        "forget_me_not_color": "#6f96be",
+        "antique_gold_color": "#b68a4a",
         "walnut_color": "#675444",
-        "sage_color": "#A8B1A1",
-        "dusty_rose_color": "#D4AAA2"
+        "sage_color": "#a8b1a1",
+        "dusty_rose_color": "#d4aaa2"
       }
     },
     "related-products": {
