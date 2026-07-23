@@ -1,0 +1,281 @@
+.wonderfae-product-details {
+  --wonderfae-product-details-display-font: Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --wonderfae-product-details-body-font: Georgia, "Times New Roman", serif;
+  --wonderfae-product-details-accent-font: "Palatino Linotype", Baskerville, Georgia, serif;
+  --wonderfae-product-details-border: 1px solid rgb(182 138 74 / 34%);
+  --wonderfae-product-details-shadow: 0 1rem 2.8rem rgb(103 84 68 / 9%);
+
+  background:
+    radial-gradient(circle at 14% 12%, rgb(248 241 226 / 72%) 0, transparent 34%),
+    radial-gradient(circle at 84% 22%, rgb(168 177 161 / 12%) 0, transparent 40%),
+    linear-gradient(115deg, rgb(248 241 226 / 44%), transparent 45%),
+    var(--wonderfae-product-details-bg);
+  color: var(--wonderfae-product-details-ink);
+  overflow: clip;
+  padding: var(--wonderfae-product-details-padding-top) 0 var(--wonderfae-product-details-padding-bottom);
+}
+
+.wonderfae-product-details__container {
+  margin-inline: auto;
+  max-width: var(--wonderfae-product-details-max-width);
+  padding-inline: clamp(1.25rem, 4vw, 3.7rem);
+  width: 100%;
+}
+
+.wonderfae-product-details__header {
+  margin: 0 auto clamp(2.1rem, 4vw, 3.3rem);
+  max-width: 46rem;
+  text-align: center;
+}
+
+.wonderfae-product-details__eyebrow,
+.wonderfae-product-details__collection-label {
+  color: var(--wonderfae-product-details-ink);
+  font-family: var(--wonderfae-product-details-accent-font);
+  font-size: clamp(0.68rem, 0.64rem + 0.18vw, 0.78rem);
+  font-style: italic;
+  letter-spacing: 0.26em;
+  line-height: 1.5;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.wonderfae-product-details__collection-label {
+  color: var(--wonderfae-product-details-soft-ink);
+  letter-spacing: 0.18em;
+  margin-top: 0.5rem;
+}
+
+.wonderfae-product-details__heading {
+  color: var(--wonderfae-product-details-ink);
+  font-family: var(--wonderfae-product-details-display-font);
+  font-size: clamp(2rem, 1.55rem + 1.8vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0.75rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.wonderfae-product-details__layout {
+  align-items: start;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.72fr);
+}
+
+.wonderfae-product-details__layout--single {
+  grid-template-columns: minmax(0, 46rem);
+  justify-content: center;
+}
+
+.wonderfae-product-details__story {
+  min-width: 0;
+}
+
+.wonderfae-product-details__intro {
+  color: var(--wonderfae-product-details-ink);
+  font-family: var(--wonderfae-product-details-display-font);
+  font-size: clamp(1.35rem, 1.12rem + 0.65vw, 1.85rem);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.wonderfae-product-details__statement {
+  border-left: 1px solid var(--wonderfae-product-details-gold);
+  color: var(--wonderfae-product-details-soft-ink);
+  font-family: var(--wonderfae-product-details-accent-font);
+  font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.04rem);
+  font-style: italic;
+  line-height: 1.65;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+  padding-left: 1.1rem;
+}
+
+.wonderfae-product-details__divider {
+  background: linear-gradient(90deg, var(--wonderfae-product-details-gold), transparent);
+  height: 1px;
+  margin: clamp(1.8rem, 4vw, 2.7rem) 0;
+  opacity: 0.58;
+  width: min(100%, 18rem);
+}
+
+.wonderfae-product-details__rich-text,
+.wonderfae-product-details__plain-text {
+  color: var(--wonderfae-product-details-soft-ink);
+  font-family: var(--wonderfae-product-details-body-font);
+  font-size: clamp(1rem, 0.96rem + 0.15vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.wonderfae-product-details__rich-text > * {
+  margin-block: 0 1rem;
+}
+
+.wonderfae-product-details__rich-text > :last-child,
+.wonderfae-product-details__plain-text {
+  margin-bottom: 0;
+}
+
+.wonderfae-product-details__rich-text--compact {
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.wonderfae-product-details__rich-text--compact > * {
+  margin-block: 0 0.85rem;
+}
+
+.wonderfae-product-details__facts {
+  background:
+    linear-gradient(145deg, rgb(255 255 255 / 22%), transparent 58%),
+    var(--wonderfae-product-details-surface);
+  border: var(--wonderfae-product-details-border);
+  box-shadow: var(--wonderfae-product-details-shadow);
+  min-width: 0;
+  padding: clamp(1.35rem, 3vw, 2.1rem);
+  position: relative;
+}
+
+.wonderfae-product-details__facts::before,
+.wonderfae-product-details__facts::after {
+  border: 1px solid rgb(182 138 74 / 34%);
+  content: "";
+  height: 1.15rem;
+  position: absolute;
+  width: 1.15rem;
+}
+
+.wonderfae-product-details__facts::before {
+  border-bottom: 0;
+  border-right: 0;
+  left: 0.65rem;
+  top: 0.65rem;
+}
+
+.wonderfae-product-details__facts::after {
+  border-left: 0;
+  border-top: 0;
+  bottom: 0.65rem;
+  right: 0.65rem;
+}
+
+.wonderfae-product-details__identity,
+.wonderfae-product-details__fact-list {
+  margin: 0;
+}
+
+.wonderfae-product-details__identity {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.wonderfae-product-details__fact-group {
+  border-top: var(--wonderfae-product-details-border);
+  margin-top: clamp(1.2rem, 2.5vw, 1.65rem);
+  padding-top: clamp(1rem, 2vw, 1.35rem);
+}
+
+.wonderfae-product-details__fact-heading {
+  color: var(--wonderfae-product-details-ink);
+  font-family: var(--wonderfae-product-details-display-font);
+  font-size: clamp(1.18rem, 1.08rem + 0.28vw, 1.38rem);
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.wonderfae-product-details__fact-row {
+  display: grid;
+  gap: 0.35rem;
+  grid-template-columns: minmax(6.5rem, 0.42fr) minmax(0, 1fr);
+  padding-block: 0.45rem;
+}
+
+.wonderfae-product-details__fact-row + .wonderfae-product-details__fact-row {
+  border-top: 1px solid rgb(182 138 74 / 20%);
+}
+
+.wonderfae-product-details__fact-row dt {
+  color: var(--wonderfae-product-details-ink);
+  font-family: var(--wonderfae-product-details-accent-font);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.wonderfae-product-details__fact-row dd {
+  color: var(--wonderfae-product-details-soft-ink);
+  font-family: var(--wonderfae-product-details-body-font);
+  line-height: 1.55;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.wonderfae-product-details__empty {
+  border: var(--wonderfae-product-details-border);
+  color: var(--wonderfae-product-details-soft-ink);
+  font-family: var(--wonderfae-product-details-body-font);
+  margin-inline: auto;
+  max-width: 42rem;
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.wonderfae-product-details--animations .wonderfae-product-details__header,
+.wonderfae-product-details--animations .wonderfae-product-details__story,
+.wonderfae-product-details--animations .wonderfae-product-details__facts,
+.wonderfae-product-details--animations .wonderfae-product-details__empty {
+  animation: wonderfae-product-details-reveal 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.wonderfae-product-details--animations .wonderfae-product-details__story {
+  animation-delay: 100ms;
+}
+
+.wonderfae-product-details--animations .wonderfae-product-details__facts {
+  animation-delay: 180ms;
+}
+
+@keyframes wonderfae-product-details-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 62rem) {
+  .wonderfae-product-details__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .wonderfae-product-details__facts {
+    margin-inline: auto;
+    max-width: 42rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  .wonderfae-product-details__fact-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wonderfae-product-details *,
+  .wonderfae-product-details *::before,
+  .wonderfae-product-details *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}

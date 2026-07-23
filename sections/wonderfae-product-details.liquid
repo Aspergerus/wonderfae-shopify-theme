@@ -1,0 +1,478 @@
+{{ 'wonderfae-product-details.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_anchor = section.settings.section_anchor | default: 'companion-details' | handleize
+  assign heading_tag = section.settings.heading_tag | default: 'h2'
+
+  assign mouse_number = product.metafields.custom.mouse_number.value
+  assign short_story = product.metafields.custom.short_story.value
+  assign companion_status = product.metafields.custom.companion_status.value
+  assign collection_label = product.metafields.custom.collection_label.value
+  assign vintage_object_name = product.metafields.custom.vintage_object_name.value
+  assign vintage_object_era = product.metafields.custom.vintage_object_era.value
+  assign vintage_object_condition = product.metafields.custom.vintage_object_condition.value
+  assign dimensions = product.metafields.custom.dimensions.value
+
+  assign full_story_metafield = product.metafields.custom.full_story
+  assign vintage_object_history_metafield = product.metafields.custom.vintage_object_history
+  assign materials_metafield = product.metafields.custom.materials
+  assign craftsmanship_metafield = product.metafields.custom.craftsmanship
+  assign included_items_metafield = product.metafields.custom.included_items
+  assign shipping_note_metafield = product.metafields.custom.shipping_note
+
+  if companion_status == blank
+    if product.available
+      assign companion_status = 'Available'
+    else
+      assign companion_status = 'Adopted'
+    endif
+  endif
+
+  assign has_identity = false
+  if section.settings.show_mouse_number and mouse_number != blank
+    assign has_identity = true
+  endif
+  if section.settings.show_status and companion_status != blank
+    assign has_identity = true
+  endif
+
+  assign has_story = false
+  if section.settings.show_short_story and short_story != blank
+    assign has_story = true
+  endif
+  if section.settings.show_one_of_a_kind_statement and section.settings.one_of_a_kind_statement != blank
+    assign has_story = true
+  endif
+  if section.settings.show_full_story and full_story_metafield != blank
+    assign has_story = true
+  endif
+
+  assign has_vintage_object = false
+  if vintage_object_name != blank or vintage_object_era != blank or vintage_object_history_metafield != blank or vintage_object_condition != blank
+    assign has_vintage_object = true
+  endif
+
+  assign has_facts = false
+  if has_identity
+    assign has_facts = true
+  endif
+  if section.settings.show_vintage_object and has_vintage_object
+    assign has_facts = true
+  endif
+  if section.settings.show_materials and materials_metafield != blank
+    assign has_facts = true
+  endif
+  if section.settings.show_craftsmanship and craftsmanship_metafield != blank
+    assign has_facts = true
+  endif
+  if section.settings.show_dimensions and dimensions != blank
+    assign has_facts = true
+  endif
+  if section.settings.show_included_items and included_items_metafield != blank
+    assign has_facts = true
+  endif
+  if section.settings.show_shipping_note and shipping_note_metafield != blank
+    assign has_facts = true
+  endif
+-%}
+
+<section
+  class="wonderfae-product-details{% if section.settings.enable_animations %} wonderfae-product-details--animations{% endif %}"
+  id="{{ section_anchor }}"
+  style="
+    --wonderfae-product-details-padding-top: {{ section.settings.padding_top }}px;
+    --wonderfae-product-details-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --wonderfae-product-details-max-width: {{ section.settings.max_width }}px;
+    --wonderfae-product-details-bg: {{ section.settings.background_color }};
+    --wonderfae-product-details-surface: {{ section.settings.surface_color }};
+    --wonderfae-product-details-ink: {{ section.settings.ink_color }};
+    --wonderfae-product-details-soft-ink: {{ section.settings.soft_ink_color }};
+    --wonderfae-product-details-forget-me-not: {{ section.settings.forget_me_not_color }};
+    --wonderfae-product-details-gold: {{ section.settings.antique_gold_color }};
+    --wonderfae-product-details-walnut: {{ section.settings.walnut_color }};
+    --wonderfae-product-details-sage: {{ section.settings.sage_color }};
+    --wonderfae-product-details-rose: {{ section.settings.dusty_rose_color }};
+  "
+>
+  <div class="wonderfae-product-details__container">
+    <header class="wonderfae-product-details__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wonderfae-product-details__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.show_collection_label and collection_label != blank -%}
+        <p class="wonderfae-product-details__collection-label">{{ collection_label | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        {%- if heading_tag == 'h3' -%}
+          <h3 class="wonderfae-product-details__heading">{{ section.settings.heading }}</h3>
+        {%- else -%}
+          <h2 class="wonderfae-product-details__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      {%- endif -%}
+    </header>
+
+    {%- if has_story or has_facts -%}
+      <div class="wonderfae-product-details__layout{% unless has_story and has_facts %} wonderfae-product-details__layout--single{% endunless %}">
+        {%- if has_story -%}
+          <article class="wonderfae-product-details__story">
+            {%- if section.settings.show_short_story and short_story != blank -%}
+              <div class="wonderfae-product-details__intro">
+                {{ short_story | escape }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_one_of_a_kind_statement and section.settings.one_of_a_kind_statement != blank -%}
+              <div class="wonderfae-product-details__statement">
+                {{ section.settings.one_of_a_kind_statement | escape }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_full_story and full_story_metafield != blank -%}
+              {%- if section.settings.show_dividers -%}
+                <div class="wonderfae-product-details__divider" aria-hidden="true"></div>
+              {%- endif -%}
+              <div class="wonderfae-product-details__rich-text">
+                {{ full_story_metafield | metafield_tag }}
+              </div>
+            {%- endif -%}
+          </article>
+        {%- endif -%}
+
+        {%- if has_facts -%}
+          <aside class="wonderfae-product-details__facts" aria-label="Companion details">
+            {%- if has_identity -%}
+              <dl class="wonderfae-product-details__identity">
+                {%- if section.settings.show_mouse_number and mouse_number != blank -%}
+                  <div class="wonderfae-product-details__fact-row">
+                    <dt>Mouse number</dt>
+                    <dd>{{ mouse_number | escape }}</dd>
+                  </div>
+                {%- endif -%}
+                {%- if section.settings.show_status and companion_status != blank -%}
+                  <div class="wonderfae-product-details__fact-row">
+                    <dt>Status</dt>
+                    <dd>{{ companion_status | escape }}</dd>
+                  </div>
+                {%- endif -%}
+              </dl>
+            {%- endif -%}
+
+            {%- if section.settings.show_vintage_object and has_vintage_object -%}
+              <section class="wonderfae-product-details__fact-group">
+                <h3 class="wonderfae-product-details__fact-heading">Vintage object</h3>
+                <dl class="wonderfae-product-details__fact-list">
+                  {%- if vintage_object_name != blank -%}
+                    <div class="wonderfae-product-details__fact-row">
+                      <dt>Object</dt>
+                      <dd>{{ vintage_object_name | escape }}</dd>
+                    </div>
+                  {%- endif -%}
+                  {%- if vintage_object_era != blank -%}
+                    <div class="wonderfae-product-details__fact-row">
+                      <dt>Era</dt>
+                      <dd>{{ vintage_object_era | escape }}</dd>
+                    </div>
+                  {%- endif -%}
+                  {%- if vintage_object_condition != blank -%}
+                    <div class="wonderfae-product-details__fact-row">
+                      <dt>Condition</dt>
+                      <dd>{{ vintage_object_condition | escape }}</dd>
+                    </div>
+                  {%- endif -%}
+                </dl>
+                {%- if vintage_object_history_metafield != blank -%}
+                  <div class="wonderfae-product-details__rich-text wonderfae-product-details__rich-text--compact">
+                    {{ vintage_object_history_metafield | metafield_tag }}
+                  </div>
+                {%- endif -%}
+              </section>
+            {%- endif -%}
+
+            {%- if section.settings.show_materials and materials_metafield != blank -%}
+              <section class="wonderfae-product-details__fact-group">
+                <h3 class="wonderfae-product-details__fact-heading">Materials</h3>
+                <div class="wonderfae-product-details__rich-text wonderfae-product-details__rich-text--compact">
+                  {{ materials_metafield | metafield_tag }}
+                </div>
+              </section>
+            {%- endif -%}
+
+            {%- if section.settings.show_craftsmanship and craftsmanship_metafield != blank -%}
+              <section class="wonderfae-product-details__fact-group">
+                <h3 class="wonderfae-product-details__fact-heading">Craftsmanship</h3>
+                <div class="wonderfae-product-details__rich-text wonderfae-product-details__rich-text--compact">
+                  {{ craftsmanship_metafield | metafield_tag }}
+                </div>
+              </section>
+            {%- endif -%}
+
+            {%- if section.settings.show_dimensions and dimensions != blank -%}
+              <section class="wonderfae-product-details__fact-group">
+                <h3 class="wonderfae-product-details__fact-heading">Dimensions</h3>
+                <p class="wonderfae-product-details__plain-text">{{ dimensions | escape }}</p>
+              </section>
+            {%- endif -%}
+
+            {%- if section.settings.show_included_items and included_items_metafield != blank -%}
+              <section class="wonderfae-product-details__fact-group">
+                <h3 class="wonderfae-product-details__fact-heading">What is included</h3>
+                <div class="wonderfae-product-details__rich-text wonderfae-product-details__rich-text--compact">
+                  {{ included_items_metafield | metafield_tag }}
+                </div>
+              </section>
+            {%- endif -%}
+
+            {%- if section.settings.show_shipping_note and shipping_note_metafield != blank -%}
+              <section class="wonderfae-product-details__fact-group">
+                <h3 class="wonderfae-product-details__fact-heading">Shipping</h3>
+                <div class="wonderfae-product-details__rich-text wonderfae-product-details__rich-text--compact">
+                  {{ shipping_note_metafield | metafield_tag }}
+                </div>
+              </section>
+            {%- endif -%}
+          </aside>
+        {%- endif -%}
+      </div>
+    {%- elsif request.design_mode -%}
+      <div class="wonderfae-product-details__empty">
+        Add Wonderfae product metafields to show companion details here.
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Wonderfae details",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor",
+      "label": "Section anchor",
+      "default": "companion-details"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "A Wonderfae companion"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The story behind this companion"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_label",
+      "label": "Show collection label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mouse_number",
+      "label": "Show mouse number",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_status",
+      "label": "Show status",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_short_story",
+      "label": "Show short story",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_one_of_a_kind_statement",
+      "label": "Show one-of-a-kind statement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "one_of_a_kind_statement",
+      "label": "One-of-a-kind statement",
+      "default": "Each Wonderfae companion is individually handmade and will never be repeated exactly."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_full_story",
+      "label": "Show full story",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vintage_object",
+      "label": "Show vintage object",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_materials",
+      "label": "Show materials",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_craftsmanship",
+      "label": "Show craftsmanship",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dimensions",
+      "label": "Show dimensions",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_included_items",
+      "label": "Show included items",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_note",
+      "label": "Show shipping note",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "Enable CSS animations",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 760,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "label": "Content width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F8F1E2"
+    },
+    {
+      "type": "color",
+      "id": "surface_color",
+      "label": "Surface",
+      "default": "#F8F1E2"
+    },
+    {
+      "type": "color",
+      "id": "ink_color",
+      "label": "Ink",
+      "default": "#294A63"
+    },
+    {
+      "type": "color",
+      "id": "soft_ink_color",
+      "label": "Soft ink",
+      "default": "#49677A"
+    },
+    {
+      "type": "color",
+      "id": "forget_me_not_color",
+      "label": "Forget-me-not",
+      "default": "#6F96BE"
+    },
+    {
+      "type": "color",
+      "id": "antique_gold_color",
+      "label": "Antique gold",
+      "default": "#B68A4A"
+    },
+    {
+      "type": "color",
+      "id": "walnut_color",
+      "label": "Walnut",
+      "default": "#675444"
+    },
+    {
+      "type": "color",
+      "id": "sage_color",
+      "label": "Sage",
+      "default": "#A8B1A1"
+    },
+    {
+      "type": "color",
+      "id": "dusty_rose_color",
+      "label": "Dusty rose",
+      "default": "#D4AAA2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wonderfae details"
+    }
+  ]
+}
+{% endschema %}
