@@ -41,12 +41,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        },
         "description": {
           "type": "description",
           "settings": {}
@@ -58,11 +52,10 @@
         "price",
         "variant_picker",
         "buy_buttons",
-        "share",
         "description"
       ],
       "settings": {
-        "enable_sticky_info": true,
+        "enable_sticky_info": false,
         "color_scheme": "scheme-1",
         "media_size": "medium",
         "constrain_to_viewport": true,
@@ -94,12 +87,12 @@
       "settings": {
         "section_anchor": "companion-details",
         "eyebrow": "A Wonderfae companion",
-        "heading": "The story behind this companion",
+        "heading": "About this companion",
         "heading_tag": "h2",
         "show_collection_label": false,
         "show_mouse_number": true,
         "show_status": true,
-        "show_short_story": true,
+        "show_short_story": false,
         "show_one_of_a_kind_statement": true,
         "one_of_a_kind_statement": "Each Wonderfae companion is individually handmade and will never be repeated exactly.",
         "show_full_story": true,
