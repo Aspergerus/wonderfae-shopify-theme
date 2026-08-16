@@ -88,43 +88,6 @@
         "padding_bottom": 0
       }
     },
-    "wonderfae_product_details_eHdaC7": {
-      "type": "wonderfae-product-details",
-      "name": "Wonderfae details",
-      "settings": {
-        "section_anchor": "companion-details",
-        "eyebrow": "A Wonderfae companion",
-        "heading": "About this companion",
-        "heading_tag": "h2",
-        "show_collection_label": false,
-        "show_mouse_number": true,
-        "show_status": true,
-        "show_short_story": false,
-        "show_one_of_a_kind_statement": true,
-        "one_of_a_kind_statement": "Each Wonderfae companion is individually handmade and will never be repeated exactly.",
-        "show_full_story": true,
-        "show_vintage_object": true,
-        "show_materials": true,
-        "show_craftsmanship": true,
-        "show_dimensions": true,
-        "show_included_items": true,
-        "show_shipping_note": true,
-        "show_dividers": true,
-        "enable_animations": true,
-        "max_width": 1200,
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "background_color": "#f8f1e2",
-        "surface_color": "#f8f1e2",
-        "ink_color": "#294a63",
-        "soft_ink_color": "#49677a",
-        "forget_me_not_color": "#6f96be",
-        "antique_gold_color": "#b68a4a",
-        "walnut_color": "#675444",
-        "sage_color": "#a8b1a1",
-        "dusty_rose_color": "#d4aaa2"
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -147,7 +110,6 @@
   "order": [
     "main",
     "disclosures",
-    "wonderfae_product_details_eHdaC7",
     "related-products"
   ]
 }
