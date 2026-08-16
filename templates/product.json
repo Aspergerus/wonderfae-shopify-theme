@@ -101,7 +101,7 @@
         "eyebrow": "A Wonderfae companion",
         "heading": "The story behind this companion",
         "heading_tag": "h2",
-        "show_collection_label": true,
+        "show_collection_label": false,
         "show_mouse_number": true,
         "show_status": true,
         "show_short_story": true,
