@@ -168,7 +168,13 @@
       </ul>
     {%- else -%}
       <div class="wonderfae-archive__empty">
-        <p>{{ section.settings.empty_text | escape }}</p>
+        <p>
+          {%- if archive_collection == blank -%}
+            {{ section.settings.empty_text | escape }}
+          {%- else -%}
+            No archived companions yet.
+          {%- endif -%}
+        </p>
       </div>
     {%- endif -%}
 
