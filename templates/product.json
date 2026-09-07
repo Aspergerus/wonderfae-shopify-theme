@@ -91,11 +91,11 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "More available companions",
         "heading_size": "h1",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
