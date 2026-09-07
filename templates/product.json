@@ -77,17 +77,6 @@
         "padding_bottom": 0
       }
     },
-    "disclosures": {
-      "type": "disclosures",
-      "settings": {
-        "heading": "Disclosures",
-        "heading_size": "h2",
-        "open_by_default": false,
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -109,7 +98,6 @@
   },
   "order": [
     "main",
-    "disclosures",
     "related-products"
   ]
 }
