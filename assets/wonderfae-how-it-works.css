@@ -12,15 +12,42 @@
     linear-gradient(115deg, var(--wonderfae-how-it-works-cream) 0%, transparent 48%),
     var(--wonderfae-how-it-works-bg);
   color: var(--wonderfae-how-it-works-ink);
+  isolation: isolate;
   overflow: clip;
   padding: var(--wonderfae-how-it-works-padding-top) 0 var(--wonderfae-how-it-works-padding-bottom);
+  position: relative;
+}
+
+.wonderfae-how-it-works__floral {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  height: min(64px, var(--wonderfae-how-it-works-padding-top));
+  left: 50%;
+  opacity: 0.7;
+  pointer-events: none;
+  position: absolute;
+  top: max(0px, calc((var(--wonderfae-how-it-works-padding-top) - 64px) / 2));
+  transform: translateX(-50%);
+  user-select: none;
+  width: clamp(160px, 18vw, 220px);
+  z-index: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .wonderfae-how-it-works__floral {
+    display: block;
+  }
 }
 
 .wonderfae-how-it-works__container {
   margin-inline: auto;
   max-width: var(--wonderfae-how-it-works-max-width);
   padding-inline: clamp(1.25rem, 4vw, 3.7rem);
+  position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .wonderfae-how-it-works__header {

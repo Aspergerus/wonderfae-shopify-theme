@@ -12,15 +12,42 @@
     linear-gradient(115deg, rgb(248 241 226 / 30%), transparent 45%),
     var(--wonderfae-archive-bg);
   color: var(--wonderfae-archive-ink);
+  isolation: isolate;
   overflow: clip;
   padding: var(--wonderfae-archive-padding-top) 0 var(--wonderfae-archive-padding-bottom);
+  position: relative;
+}
+
+.wonderfae-archive__floral {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  height: min(56px, var(--wonderfae-archive-padding-top));
+  left: 50%;
+  opacity: 0.65;
+  pointer-events: none;
+  position: absolute;
+  top: max(0px, calc((var(--wonderfae-archive-padding-top) - 56px) / 2));
+  transform: translateX(-50%);
+  user-select: none;
+  width: clamp(100px, 10vw, 140px);
+  z-index: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .wonderfae-archive__floral {
+    display: block;
+  }
 }
 
 .wonderfae-archive__container {
   margin-inline: auto;
   max-width: 77rem;
   padding-inline: clamp(1.25rem, 4vw, 3.7rem);
+  position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .wonderfae-archive__header {

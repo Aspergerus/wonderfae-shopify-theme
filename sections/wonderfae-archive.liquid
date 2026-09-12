@@ -30,6 +30,12 @@
     --wonderfae-archive-gold: {{ section.settings.gold_color }};
   "
 >
+  <span
+    class="wonderfae-archive__floral"
+    aria-hidden="true"
+    style="background-image: url('{{ 'wonderfae-floral-sprig-small.png' | asset_url }}');"
+  ></span>
+
   <div class="wonderfae-archive__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <header class="wonderfae-archive__header">
       {%- if section.settings.eyebrow != blank -%}

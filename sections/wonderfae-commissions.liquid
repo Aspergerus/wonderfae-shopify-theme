@@ -22,6 +22,12 @@
     --wonderfae-commissions-gold: {{ section.settings.gold_color }};
   "
 >
+  <span
+    class="wonderfae-commissions__floral"
+    aria-hidden="true"
+    style="background-image: url('{{ 'wonderfae-floral-corner-small-01.png' | asset_url }}');"
+  ></span>
+
   <div class="wonderfae-commissions__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <div class="wonderfae-commissions__card">
       {%- if section.settings.eyebrow != blank -%}

@@ -21,6 +21,41 @@
   position: relative;
 }
 
+.wonderfae-hero__floral {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  max-height: calc(100% - 48px);
+  max-width: max(0px, calc((100% - var(--wonderfae-hero-centered-content-width)) / 2 + 32px));
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  z-index: 0;
+}
+
+.wonderfae-hero__floral--left {
+  aspect-ratio: 902 / 1128;
+  bottom: clamp(24px, 4vw, 64px);
+  left: -32px;
+  opacity: 0.72;
+  width: clamp(190px, 23vw, 340px);
+}
+
+.wonderfae-hero__floral--right {
+  aspect-ratio: 839 / 941;
+  opacity: 0.62;
+  right: -20px;
+  top: clamp(20px, 3vw, 48px);
+  width: clamp(170px, 20vw, 300px);
+}
+
+@media screen and (min-width: 1200px) {
+  .wonderfae-hero__floral {
+    display: block;
+  }
+}
+
 .wonderfae-hero__light {
   background: radial-gradient(ellipse, rgb(248 241 226 / 64%), transparent 64%);
   filter: blur(1rem);

@@ -33,6 +33,19 @@
   <div class="wonderfae-hero__grain" aria-hidden="true"></div>
 
   {%- if layout_mode == 'logo_centered' -%}
+    {%- if section.settings.show_ornaments -%}
+      <span
+        class="wonderfae-hero__floral wonderfae-hero__floral--left"
+        aria-hidden="true"
+        style="background-image: url('{{ 'wonderfae-floral-frame-left.png' | asset_url }}');"
+      ></span>
+      <span
+        class="wonderfae-hero__floral wonderfae-hero__floral--right"
+        aria-hidden="true"
+        style="background-image: url('{{ 'wonderfae-floral-frame-right.png' | asset_url }}');"
+      ></span>
+    {%- endif -%}
+
     <div class="wonderfae-hero__container wonderfae-hero__container--centered">
       <div class="wonderfae-hero__content wonderfae-hero__content--centered">
         {%- if section.settings.show_logo_mode_eyebrow and section.settings.eyebrow != blank -%}

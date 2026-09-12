@@ -12,15 +12,41 @@
     radial-gradient(circle at 78% 30%, rgb(182 138 74 / 10%) 0, transparent 42%),
     var(--wonderfae-commissions-bg);
   color: var(--wonderfae-commissions-ink);
+  isolation: isolate;
   overflow: clip;
   padding: var(--wonderfae-commissions-padding-top) 0 var(--wonderfae-commissions-padding-bottom);
+  position: relative;
+}
+
+.wonderfae-commissions__floral {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  height: min(64px, var(--wonderfae-commissions-padding-top));
+  opacity: 0.55;
+  pointer-events: none;
+  position: absolute;
+  right: max(24px, calc((100% - var(--wonderfae-commissions-max-width)) / 2 + 24px));
+  top: max(0px, calc((var(--wonderfae-commissions-padding-top) - 64px) / 2));
+  user-select: none;
+  width: clamp(80px, 7vw, 110px);
+  z-index: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .wonderfae-commissions__floral {
+    display: block;
+  }
 }
 
 .wonderfae-commissions__container {
   margin-inline: auto;
   max-width: calc(var(--wonderfae-commissions-max-width) + clamp(2.5rem, 8vw, 7.4rem));
   padding-inline: clamp(1.25rem, 4vw, 3.7rem);
+  position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .wonderfae-commissions__card {
