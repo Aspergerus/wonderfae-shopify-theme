@@ -16,7 +16,6 @@
 
 <section
   class="wonderfae-archive wonderfae-archive--count-{{ product_count }}{% if section.settings.enable_animations %} wonderfae-archive--animations{% endif %}"
-  id="{{ section_anchor }}"
   style="
     --wonderfae-archive-padding-top: {{ section.settings.padding_top }}px;
     --wonderfae-archive-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -31,7 +30,7 @@
     --wonderfae-archive-gold: {{ section.settings.gold_color }};
   "
 >
-  <div class="wonderfae-archive__container">
+  <div class="wonderfae-archive__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <header class="wonderfae-archive__header">
       {%- if section.settings.eyebrow != blank -%}
         <p class="wonderfae-archive__eyebrow">{{ section.settings.eyebrow | escape }}</p>

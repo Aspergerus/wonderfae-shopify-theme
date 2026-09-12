@@ -7,7 +7,6 @@
 
 <section
   class="wonderfae-commissions{% if section.settings.enable_animations %} wonderfae-commissions--animations{% endif %}"
-  id="{{ section_anchor }}"
   style="
     --wonderfae-commissions-padding-top: {{ section.settings.padding_top }}px;
     --wonderfae-commissions-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -23,7 +22,7 @@
     --wonderfae-commissions-gold: {{ section.settings.gold_color }};
   "
 >
-  <div class="wonderfae-commissions__container">
+  <div class="wonderfae-commissions__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <div class="wonderfae-commissions__card">
       {%- if section.settings.eyebrow != blank -%}
         <p class="wonderfae-commissions__eyebrow">{{ section.settings.eyebrow | escape }}</p>

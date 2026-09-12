@@ -18,7 +18,6 @@
 
 <section
   class="wonderfae-story wonderfae-story--side-{{ desktop_side_position }} wonderfae-story--mobile-{{ mobile_order }}{% if section.settings.enable_animations %} wonderfae-story--animations{% endif %}"
-  id="{{ section_anchor }}"
   style="
     --wonderfae-story-padding-top: {{ section.settings.padding_top }}px;
     --wonderfae-story-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -36,7 +35,7 @@
     --wonderfae-story-blush: {{ section.settings.blush_color }};
   "
 >
-  <div class="wonderfae-story__container">
+  <div class="wonderfae-story__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <div class="wonderfae-story__layout">
       {%- if render_story_side -%}
         <div class="wonderfae-story__side">

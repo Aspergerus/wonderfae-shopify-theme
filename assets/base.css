@@ -81,6 +81,16 @@ collection-component {
 
 /* base */
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.wonderfae-anchor-target {
+  scroll-margin-top: 16px;
+}
+
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;

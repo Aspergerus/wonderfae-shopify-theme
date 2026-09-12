@@ -16,7 +16,6 @@
 
 <section
   class="wonderfae-featured-collection wonderfae-featured-collection--count-{{ product_count }}{% if section.settings.enable_animations %} wonderfae-featured-collection--animations{% endif %}"
-  id="{{ section_anchor }}"
   style="
     --wonderfae-featured-collection-padding-top: {{ section.settings.padding_top }}px;
     --wonderfae-featured-collection-padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -31,7 +30,7 @@
     --wonderfae-featured-collection-gold: {{ section.settings.gold_color }};
   "
 >
-  <div class="wonderfae-featured-collection__container">
+  <div class="wonderfae-featured-collection__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <header class="wonderfae-featured-collection__header">
       {%- if section.settings.eyebrow != blank -%}
         <p class="wonderfae-featured-collection__eyebrow">{{ section.settings.eyebrow | escape }}</p>
