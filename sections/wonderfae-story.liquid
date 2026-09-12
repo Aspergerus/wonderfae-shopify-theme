@@ -38,20 +38,23 @@
   <div class="wonderfae-story__container wonderfae-anchor-target" id="{{ section_anchor }}">
     {%- if render_story_side and side_content_type == 'image' and section.settings.show_botanical_ornament -%}
       <span
-        class="wonderfae-story__floral wonderfae-story__floral--left"
-        aria-hidden="true"
-        style="background-image: url('{{ 'wonderfae-floral-corner-01.png' | asset_url }}');"
-      ></span>
-      <span
         class="wonderfae-story__floral wonderfae-story__floral--right"
         aria-hidden="true"
-        style="background-image: url('{{ 'wonderfae-floral-corner-small-02.png' | asset_url }}');"
+        style="background-image: url('{{ 'wonderfae-floral-corner-01.png' | asset_url }}');"
       ></span>
     {%- endif -%}
 
     <div class="wonderfae-story__layout">
       {%- if render_story_side -%}
         <div class="wonderfae-story__side">
+          {%- if side_content_type == 'image' and section.settings.show_botanical_ornament -%}
+            <span
+              class="wonderfae-story__floral wonderfae-story__floral--left"
+              aria-hidden="true"
+              style="background-image: url('{{ 'wonderfae-floral-corner-01.png' | asset_url }}');"
+            ></span>
+          {%- endif -%}
+
           {%- if side_content_type == 'image' -%}
             {%- if section.settings.story_image != blank -%}
               {%- liquid

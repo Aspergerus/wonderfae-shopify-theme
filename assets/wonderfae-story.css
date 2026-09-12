@@ -40,25 +40,25 @@
 
 .wonderfae-story__floral--left {
   aspect-ratio: 1789 / 1482;
-  left: calc(clamp(1.25rem, 4vw, 3.7rem) - 110px);
+  left: clamp(-64px, calc(127px - 15vw), -20px);
   opacity: 0.65;
-  top: -13px;
+  top: -42px;
   transform: rotate(-8deg);
   width: clamp(160px, 18vw, 230px);
 }
 
 .wonderfae-story__floral--right {
-  aspect-ratio: 1196 / 1212;
-  bottom: 18px;
-  opacity: 0.42;
-  right: calc(clamp(1.25rem, 4vw, 3.7rem) - 70px);
-  transform: rotate(7deg);
-  width: clamp(72px, 7vw, 96px);
+  aspect-ratio: 1789 / 1482;
+  bottom: -36px;
+  opacity: 0.46;
+  right: 0;
+  transform: rotate(180deg);
+  width: clamp(200px, 17vw, 300px);
 }
 
 .wonderfae-story--side-right .wonderfae-story__floral--left {
   left: auto;
-  right: calc(clamp(1.25rem, 4vw, 3.7rem) - 110px);
+  right: clamp(-64px, calc(127px - 15vw), -20px);
   transform: scaleX(-1) rotate(-8deg);
 }
 
@@ -89,8 +89,10 @@
 
 .wonderfae-story__side {
   display: flex;
+  isolation: isolate;
   justify-content: center;
   min-width: 0;
+  position: relative;
   width: 100%;
 }
 
@@ -149,6 +151,7 @@
   padding: clamp(0.55rem, 1vw, 0.8rem);
   position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .wonderfae-story__image-frame--portrait {
