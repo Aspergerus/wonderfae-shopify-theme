@@ -38,9 +38,14 @@
   <div class="wonderfae-story__container wonderfae-anchor-target" id="{{ section_anchor }}">
     {%- if render_story_side and side_content_type == 'image' and section.settings.show_botanical_ornament -%}
       <span
-        class="wonderfae-story__floral"
+        class="wonderfae-story__floral wonderfae-story__floral--left"
         aria-hidden="true"
         style="background-image: url('{{ 'wonderfae-floral-corner-01.png' | asset_url }}');"
+      ></span>
+      <span
+        class="wonderfae-story__floral wonderfae-story__floral--right"
+        aria-hidden="true"
+        style="background-image: url('{{ 'wonderfae-floral-corner-small-02.png' | asset_url }}');"
       ></span>
     {%- endif -%}
 
