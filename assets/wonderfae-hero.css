@@ -45,7 +45,7 @@
 .wonderfae-hero__floral--right {
   aspect-ratio: 839 / 941;
   opacity: 0.62;
-  right: -20px;
+  right: 12px;
   top: clamp(20px, 3vw, 48px);
   width: clamp(170px, 20vw, 300px);
 }
