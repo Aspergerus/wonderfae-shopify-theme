@@ -509,48 +509,70 @@
 }
 
 @keyframes wonderfae-hero-petal-fall-right {
-  0%,
-  50% {
+  0% {
     opacity: 0;
     transform: translate(0, 0) rotate(-20deg);
   }
 
   3%,
-  14%,
+  14% {
+    opacity: 0.65;
+  }
+
+  18%,
+  49.99% {
+    opacity: 0;
+    transform: translate(-18px, 104px) rotate(30deg);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(-22px, 18px) rotate(18deg);
+  }
+
   53%,
   64% {
     opacity: 0.65;
   }
 
-  18%,
-  49.99%,
   68%,
   100% {
     opacity: 0;
-    transform: translate(-18px, 104px) rotate(30deg);
+    transform: translate(-10px, 114px) rotate(-28deg);
   }
 }
 
 @keyframes wonderfae-hero-petal-fall-left {
-  0%,
-  50% {
+  0% {
     opacity: 0;
     transform: translate(0, 0) rotate(15deg);
   }
 
   3%,
-  14%,
+  14% {
+    opacity: 0.6;
+  }
+
+  18%,
+  49.99% {
+    opacity: 0;
+    transform: translate(14px, 84px) rotate(-27deg);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(4px, 26px) rotate(-15deg);
+  }
+
   53%,
   64% {
     opacity: 0.6;
   }
 
-  18%,
-  49.99%,
   68%,
   100% {
     opacity: 0;
-    transform: translate(14px, 84px) rotate(-27deg);
+    transform: translate(-8px, 122px) rotate(27deg);
   }
 }
 
