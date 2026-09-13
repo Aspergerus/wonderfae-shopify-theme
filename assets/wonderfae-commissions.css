@@ -13,9 +13,11 @@
     var(--wonderfae-commissions-bg);
   color: var(--wonderfae-commissions-ink);
   isolation: isolate;
-  overflow: clip;
+  overflow-x: clip;
+  overflow-y: visible;
   padding: var(--wonderfae-commissions-padding-top) 0 var(--wonderfae-commissions-padding-bottom);
   position: relative;
+  z-index: 1;
 }
 
 .wonderfae-commissions__floral {
