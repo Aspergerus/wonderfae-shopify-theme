@@ -35,76 +35,78 @@
     --wonderfae-story-blush: {{ section.settings.blush_color }};
   "
 >
-  <div class="wonderfae-story__container wonderfae-anchor-target" id="{{ section_anchor }}">
-    {%- if render_story_side and side_content_type == 'image' and section.settings.show_botanical_ornament -%}
-      <span
-        class="wonderfae-story__floral wonderfae-story__floral--right"
-        aria-hidden="true"
-        style="background-image: url('{{ 'wonderfae-floral-corner-01.png' | asset_url }}');"
-      ></span>
-    {%- endif -%}
+  {%- if render_story_side and side_content_type == 'image' and section.settings.show_botanical_ornament -%}
+    <span
+      class="wonderfae-story__floral wonderfae-story__floral--right"
+      aria-hidden="true"
+      style="background-image: url('{{ 'wonderfae-floral-frame-right.png' | asset_url }}');"
+    ></span>
+  {%- endif -%}
 
+  <div class="wonderfae-story__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <div class="wonderfae-story__layout">
       {%- if render_story_side -%}
         <div class="wonderfae-story__side">
-          {%- if side_content_type == 'image' and section.settings.show_botanical_ornament -%}
-            <span
-              class="wonderfae-story__floral wonderfae-story__floral--left"
-              aria-hidden="true"
-              style="background-image: url('{{ 'wonderfae-floral-corner-01.png' | asset_url }}');"
-            ></span>
-          {%- endif -%}
-
           {%- if side_content_type == 'image' -%}
-            {%- if section.settings.story_image != blank -%}
-              {%- liquid
-                assign story_image_alt = section.settings.story_image_alt | default: 'Wonderfae creator' | escape
-                assign story_image_width = section.settings.story_image_max_width | default: 380
-                assign story_image_sizes = '(min-width: 990px) min(38vw, ' | append: story_image_width | append: 'px), min(100vw - 2.5rem, ' | append: story_image_width | append: 'px)'
-                assign show_story_image_caption = false
+            <div class="wonderfae-story__media">
+              {%- if section.settings.show_botanical_ornament -%}
+                <span
+                  class="wonderfae-story__floral wonderfae-story__floral--left"
+                  aria-hidden="true"
+                  style="background-image: url('{{ 'wonderfae-floral-corner-01.png' | asset_url }}');"
+                ></span>
+              {%- endif -%}
 
-                if section.settings.show_story_image_caption and section.settings.story_image_caption != blank
-                  assign show_story_image_caption = true
-                endif
-              -%}
+              {%- if section.settings.story_image != blank -%}
+                {%- liquid
+                  assign story_image_alt = section.settings.story_image_alt | default: 'Wonderfae creator' | escape
+                  assign story_image_width = section.settings.story_image_max_width | default: 380
+                  assign story_image_sizes = '(min-width: 990px) min(38vw, ' | append: story_image_width | append: 'px), min(100vw - 2.5rem, ' | append: story_image_width | append: 'px)'
+                  assign show_story_image_caption = false
 
-              {%- if show_story_image_caption -%}
-                <figure class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
-                  {{
-                    section.settings.story_image
-                    | image_url: width: 900
-                    | image_tag:
-                      class: 'wonderfae-story__image',
-                      widths: '260, 320, 380, 440, 520, 680, 900',
-                      sizes: story_image_sizes,
-                      loading: 'lazy',
-                      alt: story_image_alt
-                  }}
-                  <figcaption class="wonderfae-story__image-caption">
-                    {{ section.settings.story_image_caption | escape }}
-                  </figcaption>
-                </figure>
-              {%- else -%}
+                  if section.settings.show_story_image_caption and section.settings.story_image_caption != blank
+                    assign show_story_image_caption = true
+                  endif
+                -%}
+
+                {%- if show_story_image_caption -%}
+                  <figure class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
+                    {{
+                      section.settings.story_image
+                      | image_url: width: 900
+                      | image_tag:
+                        class: 'wonderfae-story__image',
+                        widths: '260, 320, 380, 440, 520, 680, 900',
+                        sizes: story_image_sizes,
+                        loading: 'lazy',
+                        alt: story_image_alt
+                    }}
+                    <figcaption class="wonderfae-story__image-caption">
+                      {{ section.settings.story_image_caption | escape }}
+                    </figcaption>
+                  </figure>
+                {%- else -%}
+                  <div class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
+                    {{
+                      section.settings.story_image
+                      | image_url: width: 900
+                      | image_tag:
+                        class: 'wonderfae-story__image',
+                        widths: '260, 320, 380, 440, 520, 680, 900',
+                        sizes: story_image_sizes,
+                        loading: 'lazy',
+                        alt: story_image_alt
+                    }}
+                  </div>
+                {%- endif -%}
+              {%- elsif request.design_mode -%}
                 <div class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
-                  {{
-                    section.settings.story_image
-                    | image_url: width: 900
-                    | image_tag:
-                      class: 'wonderfae-story__image',
-                      widths: '260, 320, 380, 440, 520, 680, 900',
-                      sizes: story_image_sizes,
-                      loading: 'lazy',
-                      alt: story_image_alt
-                  }}
+                  <div class="wonderfae-story__image-placeholder">
+                    Add a creator photo in the Story section settings.
+                  </div>
                 </div>
               {%- endif -%}
-            {%- elsif request.design_mode -%}
-              <div class="wonderfae-story__image-frame wonderfae-story__image-frame--{{ story_image_shape }}">
-                <div class="wonderfae-story__image-placeholder">
-                  Add a creator photo in the Story section settings.
-                </div>
-              </div>
-            {%- endif -%}
+            </div>
           {%- else -%}
             <aside class="wonderfae-story__keepsake" aria-label="Keepsake note">
               {%- if section.settings.show_botanical_ornament -%}

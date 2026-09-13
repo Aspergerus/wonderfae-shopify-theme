@@ -14,8 +14,10 @@
     linear-gradient(115deg, rgb(248 241 226 / 38%), transparent 45%),
     var(--wonderfae-story-bg);
   color: var(--wonderfae-story-ink);
+  isolation: isolate;
   overflow: clip;
   padding: var(--wonderfae-story-padding-top) 0 var(--wonderfae-story-padding-bottom);
+  position: relative;
 }
 
 .wonderfae-story__container {
@@ -25,6 +27,7 @@
   padding-inline: clamp(1.25rem, 4vw, 3.7rem);
   position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .wonderfae-story__floral {
@@ -40,7 +43,7 @@
 
 .wonderfae-story__floral--left {
   aspect-ratio: 1789 / 1482;
-  left: clamp(-64px, calc(127px - 15vw), -20px);
+  left: clamp(-42px, -3vw, -30px);
   opacity: 0.65;
   top: -42px;
   transform: rotate(-8deg);
@@ -48,18 +51,12 @@
 }
 
 .wonderfae-story__floral--right {
-  aspect-ratio: 1789 / 1482;
-  bottom: -36px;
-  opacity: 0.46;
-  right: 0;
-  transform: rotate(180deg);
-  width: clamp(200px, 17vw, 300px);
-}
-
-.wonderfae-story--side-right .wonderfae-story__floral--left {
-  left: auto;
-  right: clamp(-64px, calc(127px - 15vw), -20px);
-  transform: scaleX(-1) rotate(-8deg);
+  aspect-ratio: 839 / 941;
+  opacity: 0.52;
+  right: clamp(-150px, calc(20vw - 390px), -56px);
+  top: 52%;
+  transform: translateY(-25%) rotate(1deg);
+  width: clamp(220px, 20vw, 340px);
 }
 
 @media screen and (min-width: 990px) {
@@ -92,6 +89,13 @@
   isolation: isolate;
   justify-content: center;
   min-width: 0;
+  position: relative;
+  width: 100%;
+}
+
+.wonderfae-story__media {
+  isolation: isolate;
+  max-width: min(100%, var(--wonderfae-story-image-max-width));
   position: relative;
   width: 100%;
 }
