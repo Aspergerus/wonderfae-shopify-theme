@@ -19,19 +19,20 @@
 }
 
 .wonderfae-commissions__floral {
+  aspect-ratio: 1196 / 1212;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: none;
-  height: min(64px, var(--wonderfae-commissions-padding-top));
-  opacity: 0.55;
+  opacity: 0.62;
   pointer-events: none;
   position: absolute;
-  right: max(24px, calc((100% - var(--wonderfae-commissions-max-width)) / 2 + 24px));
-  top: max(0px, calc((var(--wonderfae-commissions-padding-top) - 64px) / 2));
+  right: clamp(-44px, -3vw, -30px);
+  top: clamp(-60px, -4.2vw, -42px);
+  transform: rotate(2deg);
   user-select: none;
-  width: clamp(80px, 7vw, 110px);
-  z-index: 0;
+  width: clamp(120px, 11vw, 170px);
+  z-index: -1;
 }
 
 @media screen and (min-width: 990px) {
@@ -53,6 +54,7 @@
   background: var(--wonderfae-commissions-card-bg);
   border: var(--wonderfae-commissions-border);
   box-shadow: var(--wonderfae-commissions-shadow);
+  isolation: isolate;
   margin-inline: auto;
   max-width: var(--wonderfae-commissions-max-width);
   padding: clamp(3rem, 7vw, 4.8rem) clamp(1.4rem, 5vw, 4.8rem);
