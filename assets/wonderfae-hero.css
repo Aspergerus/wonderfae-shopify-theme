@@ -467,6 +467,43 @@
   #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--right {
     animation: wonderfae-hero-floral-sway-right 4.8s ease-in-out 1;
   }
+
+  #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--right::after {
+    animation: wonderfae-hero-petal-fall 6s linear 1.5s 1;
+    background: radial-gradient(
+      ellipse at 40% 35%,
+      rgb(248 241 226 / 80%) 0%,
+      rgb(212 170 162 / 80%) 45%,
+      rgb(212 170 162 / 0%) 85%
+    );
+    border-radius: 65% 35% 70% 30%;
+    content: '';
+    height: 14px;
+    left: 70%;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 36%;
+    user-select: none;
+    width: 10px;
+  }
+}
+
+@keyframes wonderfae-hero-petal-fall {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-20deg);
+  }
+
+  15%,
+  65% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-18px, 110px) rotate(32deg);
+  }
 }
 
 @keyframes wonderfae-hero-soft-reveal {
