@@ -199,13 +199,13 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     .wonderfae-commissions,
     .wonderfae-archive
   )::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' seed='17' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.055' numOctaves='4' seed='17' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 240px 240px;
+  background-size: 480px 480px;
   content: '';
   inset: 0;
-  mix-blend-mode: multiply;
-  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  opacity: 0.06;
   pointer-events: none;
   position: absolute;
   user-select: none;
