@@ -63,12 +63,6 @@
       {%- if section.settings.introduction != blank -%}
         <div class="wonderfae-featured-collection__intro">{{ section.settings.introduction }}</div>
       {%- endif -%}
-
-      <span
-        class="wonderfae-featured-collection__floral-divider"
-        aria-hidden="true"
-        style="background-image: url('{{ 'wonderfae-floral-divider-wide.png' | asset_url }}');"
-      ></span>
     </header>
 
     {%- if featured_collection != blank and featured_collection.products.size > 0 -%}
