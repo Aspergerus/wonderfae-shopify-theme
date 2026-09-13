@@ -1,3 +1,13 @@
+{%- liquid
+  assign is_archived_companion = false
+  for product_collection in product.collections
+    if product_collection.handle == 'archived-companions'
+      assign is_archived_companion = true
+      break
+    endif
+  endfor
+-%}
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -112,6 +122,7 @@
                       product: product,
                       use_variant: true,
                       show_badges: true,
+                      suppress_sold_out_badge: is_archived_companion,
                       price_class: 'price--large'
                     -%}
                   </div>
@@ -492,13 +503,15 @@
                     product_form_id: product_form_id
                   %}
                 {%- when 'buy_buttons' -%}
-                  {%- render 'buy-buttons',
-                    block: block,
-                    product: product,
-                    product_form_id: product_form_id,
-                    section_id: section.id,
-                    show_pickup_availability: true
-                  -%}
+                  {%- unless is_archived_companion -%}
+                    {%- render 'buy-buttons',
+                      block: block,
+                      product: product,
+                      product_form_id: product_form_id,
+                      section_id: section.id,
+                      show_pickup_availability: true
+                    -%}
+                  {%- endunless -%}
                 {%- when 'rating' -%}
                   {%- if product.metafields.reviews.rating.value != blank -%}
                     <div class="rating-wrapper">

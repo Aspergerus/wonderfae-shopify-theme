@@ -6,6 +6,7 @@
   - placeholder: {Boolean} Renders a placeholder price (optional)
   - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
   - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
+  - suppress_sold_out_badge: {Boolean} Prevents the 'Sold Out' tag from rendering (optional)
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
 
@@ -117,9 +118,11 @@
         {{ 'products.product.on_sale' | t }}
       </span>
 
-      <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
-        {{ 'products.product.sold_out' | t }}
-      </span>
+      {%- unless suppress_sold_out_badge -%}
+        <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+          {{ 'products.product.sold_out' | t }}
+        </span>
+      {%- endunless -%}
     {%- endif -%}
   </div>
 {% endunless %}
