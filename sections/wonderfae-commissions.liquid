@@ -22,14 +22,19 @@
     --wonderfae-commissions-gold: {{ section.settings.gold_color }};
   "
 >
+  <span
+    class="wonderfae-commissions__floral wonderfae-commissions__floral--left"
+    aria-hidden="true"
+    style="background-image: url('{{ 'wonderfae-floral-frame-left.png' | asset_url }}');"
+  ></span>
+  <span
+    class="wonderfae-commissions__floral wonderfae-commissions__floral--right"
+    aria-hidden="true"
+    style="background-image: url('{{ 'wonderfae-floral-frame-right.png' | asset_url }}');"
+  ></span>
+
   <div class="wonderfae-commissions__container wonderfae-anchor-target" id="{{ section_anchor }}">
     <div class="wonderfae-commissions__card">
-      <span
-        class="wonderfae-commissions__floral"
-        aria-hidden="true"
-        style="background-image: url('{{ 'wonderfae-floral-corner-small-02.png' | asset_url }}');"
-      ></span>
-
       {%- if section.settings.eyebrow != blank -%}
         <p class="wonderfae-commissions__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
