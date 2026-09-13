@@ -478,9 +478,9 @@
     user-select: none;
   }
 
-  /* Invisible holds keep new falls 9–11 seconds apart without overlapping. */
+  /* Invisible holds keep new falls 6–7 seconds apart without overlapping. */
   #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--right::after {
-    animation: wonderfae-hero-petal-fall-right 20s linear 1.5s infinite;
+    animation: wonderfae-hero-petal-fall-right 26s linear 1.5s infinite;
     background: radial-gradient(
       ellipse at 40% 35%,
       rgb(248 241 226 / 80%) 0%,
@@ -494,7 +494,7 @@
   }
 
   #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--left::after {
-    animation: wonderfae-hero-petal-fall-left 40s linear 10.5s infinite;
+    animation: wonderfae-hero-petal-fall-left 26s linear 7.5s infinite;
     background: radial-gradient(
       ellipse at 40% 35%,
       rgb(248 241 226 / 75%) 0%,
@@ -509,17 +509,22 @@
 }
 
 @keyframes wonderfae-hero-petal-fall-right {
-  0% {
+  0%,
+  50% {
     opacity: 0;
     transform: translate(0, 0) rotate(-20deg);
   }
 
-  4%,
-  16% {
+  3%,
+  14%,
+  53%,
+  64% {
     opacity: 0.65;
   }
 
-  25%,
+  18%,
+  49.99%,
+  68%,
   100% {
     opacity: 0;
     transform: translate(-18px, 104px) rotate(30deg);
@@ -528,20 +533,20 @@
 
 @keyframes wonderfae-hero-petal-fall-left {
   0%,
-  55% {
+  50% {
     opacity: 0;
     transform: translate(0, 0) rotate(15deg);
   }
 
-  2%,
-  9%,
-  57%,
+  3%,
+  14%,
+  53%,
   64% {
     opacity: 0.6;
   }
 
-  13%,
-  54.99%,
+  18%,
+  49.99%,
   68%,
   100% {
     opacity: 0;
