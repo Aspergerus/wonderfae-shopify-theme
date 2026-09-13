@@ -317,7 +317,7 @@
 }
 
 .wonderfae-hero__sprig {
-  display: block;
+  display: none;
   height: 8.5rem;
   position: absolute;
   transform: rotate(-16deg);
@@ -468,41 +468,84 @@
     animation: wonderfae-hero-floral-sway-right 4.8s ease-in-out 1;
   }
 
+  #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--left::after,
   #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--right::after {
-    animation: wonderfae-hero-petal-fall 6s linear 1.5s 1;
+    border-radius: 65% 35% 70% 30%;
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    user-select: none;
+  }
+
+  /* Invisible holds keep new falls 9–11 seconds apart without overlapping. */
+  #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--right::after {
+    animation: wonderfae-hero-petal-fall-right 20s linear 1.5s infinite;
     background: radial-gradient(
       ellipse at 40% 35%,
       rgb(248 241 226 / 80%) 0%,
       rgb(212 170 162 / 80%) 45%,
       rgb(212 170 162 / 0%) 85%
     );
-    border-radius: 65% 35% 70% 30%;
-    content: '';
-    height: 14px;
+    height: 12px;
     left: 70%;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
     top: 36%;
-    user-select: none;
-    width: 10px;
+    width: 9px;
+  }
+
+  #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--left::after {
+    animation: wonderfae-hero-petal-fall-left 40s linear 10.5s infinite;
+    background: radial-gradient(
+      ellipse at 40% 35%,
+      rgb(248 241 226 / 75%) 0%,
+      rgb(111 150 190 / 70%) 45%,
+      rgb(111 150 190 / 0%) 85%
+    );
+    height: 10px;
+    left: 18%;
+    top: 52%;
+    width: 7px;
   }
 }
 
-@keyframes wonderfae-hero-petal-fall {
+@keyframes wonderfae-hero-petal-fall-right {
   0% {
     opacity: 0;
     transform: translate(0, 0) rotate(-20deg);
   }
 
-  15%,
-  65% {
-    opacity: 0.7;
+  4%,
+  16% {
+    opacity: 0.65;
   }
 
+  25%,
   100% {
     opacity: 0;
-    transform: translate(-18px, 110px) rotate(32deg);
+    transform: translate(-18px, 104px) rotate(30deg);
+  }
+}
+
+@keyframes wonderfae-hero-petal-fall-left {
+  0%,
+  55% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(15deg);
+  }
+
+  2%,
+  9%,
+  57%,
+  64% {
+    opacity: 0.6;
+  }
+
+  13%,
+  54.99%,
+  68%,
+  100% {
+    opacity: 0;
+    transform: translate(14px, 84px) rotate(-27deg);
   }
 }
 
