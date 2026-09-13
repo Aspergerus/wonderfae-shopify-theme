@@ -452,11 +452,21 @@
 }
 
 .wonderfae-hero--animations .wonderfae-hero__sprig--top {
-  animation: wonderfae-hero-float-top 6s ease-in-out infinite;
+  transform: translateY(0) rotate(-18deg);
 }
 
 .wonderfae-hero--animations .wonderfae-hero__sprig--lower {
-  animation: wonderfae-hero-float-lower 6s ease-in-out infinite;
+  transform: translateY(0) rotate(-16deg);
+}
+
+@media screen and (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
+  #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--left {
+    animation: wonderfae-hero-floral-sway-left 4.8s ease-in-out 1;
+  }
+
+  #MainContent[data-template='index'] .wonderfae-hero--animations .wonderfae-hero__floral--right {
+    animation: wonderfae-hero-floral-sway-right 4.8s ease-in-out 1;
+  }
 }
 
 @keyframes wonderfae-hero-soft-reveal {
@@ -493,25 +503,25 @@
   }
 }
 
-@keyframes wonderfae-hero-float-top {
+@keyframes wonderfae-hero-floral-sway-left {
   0%,
   100% {
-    transform: translateY(0) rotate(-18deg);
+    transform: rotate(0deg);
   }
 
   50% {
-    transform: translateY(-7px) rotate(-16deg);
+    transform: rotate(1deg);
   }
 }
 
-@keyframes wonderfae-hero-float-lower {
+@keyframes wonderfae-hero-floral-sway-right {
   0%,
   100% {
-    transform: translateY(0) rotate(-16deg);
+    transform: rotate(0deg);
   }
 
   50% {
-    transform: translateY(6px) rotate(-16deg);
+    transform: rotate(-1deg);
   }
 }
 
@@ -565,6 +575,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #MainContent[data-template='index'] .wonderfae-hero__floral--left,
+  #MainContent[data-template='index'] .wonderfae-hero__floral--right {
+    animation: none !important;
+    transform: none;
+  }
+
   .wonderfae-hero *,
   .wonderfae-hero *::before,
   .wonderfae-hero *::after {

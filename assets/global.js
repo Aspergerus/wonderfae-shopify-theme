@@ -1458,3 +1458,36 @@ class CartPerformance {
     );
   }
 }
+
+function initializeWonderfaeFloralMotion() {
+  const motionAllowed = window.matchMedia('(min-width: 990px) and (prefers-reduced-motion: no-preference)');
+  if (!motionAllowed.matches || !('IntersectionObserver' in window)) return;
+
+  const sections = Array.from(
+    document.querySelectorAll(
+      "#MainContent[data-template='index'] :is(.wonderfae-story--animations, .wonderfae-commissions--animations):not(.is-floral-motion-active)"
+    )
+  );
+
+  if (sections.length === 0) return;
+
+  let pendingSections = sections.length;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add('is-floral-motion-active');
+        observer.unobserve(entry.target);
+        pendingSections -= 1;
+      });
+
+      if (pendingSections === 0) observer.disconnect();
+    },
+    { rootMargin: '0px 0px -50px 0px' }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+document.addEventListener('DOMContentLoaded', initializeWonderfaeFloralMotion);

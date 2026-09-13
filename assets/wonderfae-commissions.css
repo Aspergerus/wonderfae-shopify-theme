@@ -228,6 +228,20 @@
   animation: wonderfae-commissions-reveal 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
+@media screen and (min-width: 990px) and (prefers-reduced-motion: no-preference) {
+  #MainContent[data-template='index']
+    .wonderfae-commissions--animations.is-floral-motion-active
+    .wonderfae-commissions__floral--left {
+    animation: wonderfae-commissions-floral-sway-left 4.8s ease-in-out 1;
+  }
+
+  #MainContent[data-template='index']
+    .wonderfae-commissions--animations.is-floral-motion-active
+    .wonderfae-commissions__floral--right {
+    animation: wonderfae-commissions-floral-sway-right 4.8s ease-in-out 1;
+  }
+}
+
 @keyframes wonderfae-commissions-reveal {
   from {
     opacity: 0;
@@ -237,6 +251,28 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes wonderfae-commissions-floral-sway-left {
+  0%,
+  100% {
+    transform: translateY(-47%) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-47%) rotate(-2.25deg);
+  }
+}
+
+@keyframes wonderfae-commissions-floral-sway-right {
+  0%,
+  100% {
+    transform: translateY(-52%) rotate(3deg);
+  }
+
+  50% {
+    transform: translateY(-52%) rotate(2.25deg);
   }
 }
 
@@ -252,6 +288,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #MainContent[data-template='index'] .wonderfae-commissions__floral--left {
+    animation: none !important;
+    transform: translateY(-47%) rotate(-3deg);
+  }
+
+  #MainContent[data-template='index'] .wonderfae-commissions__floral--right {
+    animation: none !important;
+    transform: translateY(-52%) rotate(3deg);
+  }
+
   .wonderfae-commissions *,
   .wonderfae-commissions *::before,
   .wonderfae-commissions *::after {
