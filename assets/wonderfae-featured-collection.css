@@ -61,6 +61,19 @@
   margin: 0;
 }
 
+.wonderfae-featured-collection__floral-divider {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: block;
+  height: clamp(44px, 4vw, 56px);
+  margin: clamp(1.5rem, 2.5vw, 2rem) auto 0;
+  opacity: 0.62;
+  pointer-events: none;
+  user-select: none;
+  width: clamp(170px, 14vw, 220px);
+}
+
 .wonderfae-featured-collection__divider {
   align-items: center;
   color: var(--wonderfae-featured-collection-gold);
@@ -401,6 +414,12 @@
 }
 
 @media screen and (max-width: 48rem) {
+  .wonderfae-featured-collection__floral-divider {
+    height: 40px;
+    margin-top: 1.25rem;
+    width: clamp(120px, 34vw, 150px);
+  }
+
   .wonderfae-featured-collection__grid,
   .wonderfae-featured-collection--count-1 .wonderfae-featured-collection__grid,
   .wonderfae-featured-collection--count-2 .wonderfae-featured-collection__grid,
