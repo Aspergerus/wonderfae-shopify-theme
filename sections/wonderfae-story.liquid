@@ -59,7 +59,7 @@
 
               {%- if section.settings.story_image != blank -%}
                 {%- liquid
-                  assign story_image_alt = section.settings.story_image_alt | default: 'Wonderfae creator' | escape
+                  assign story_image_alt = section.settings.story_image_alt | default: section.settings.story_image.alt | default: 'Wonderfae creator' | escape
                   assign story_image_width = section.settings.story_image_max_width | default: 380
                   assign story_image_sizes = '(min-width: 990px) min(38vw, ' | append: story_image_width | append: 'px), min(100vw - 2.5rem, ' | append: story_image_width | append: 'px)'
                   assign show_story_image_caption = false

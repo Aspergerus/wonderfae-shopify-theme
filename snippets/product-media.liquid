@@ -54,8 +54,10 @@
   <button id="Deferred-Poster-Modal-{{ media.id }}" class="deferred-media__poster" type="button">
     <span class="deferred-media__poster-button motion-reduce">
       {%- if media.media_type == 'model' -%}
+        <span class="visually-hidden">{{ 'products.product.media.play_model' | t }}</span>
         <span class="svg-wrapper">{{ 'icon-3d-model' | inline_asset_content }}</span>
       {%- else -%}
+        <span class="visually-hidden">{{ 'products.product.media.play_video' | t }}</span>
         <span class="svg-wrapper">{{ 'icon-play.svg' | inline_asset_content }}</span>
       {%- endif -%}
     </span>

@@ -2,10 +2,13 @@
 
 {%- liquid
   assign heading_tag = section.settings.heading_tag | default: 'h1'
-  assign image_alt = section.settings.image_alt | default: section.settings.image_caption | default: section.settings.heading | escape
+  assign image_alt = section.settings.image_alt | default: section.settings.image.alt | default: section.settings.image_caption | default: section.settings.heading | escape
   assign desktop_image_position = section.settings.desktop_image_position | default: 'right'
   assign layout_mode = section.settings.layout_mode | default: 'split'
-  assign hero_logo_alt = section.settings.hero_logo_alt | default: section.settings.heading | default: 'Wonderfae' | escape
+  assign hero_logo_alt = section.settings.hero_logo_alt | default: section.settings.hero_logo.alt | default: section.settings.heading | default: 'Wonderfae' | escape
+  if section.settings.heading != blank
+    assign hero_logo_alt = ''
+  endif
   assign button_alignment = section.settings.button_alignment | default: 'center'
 -%}
 
