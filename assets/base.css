@@ -8,7 +8,7 @@ collection-component {
   --alpha-button-border: 1;
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
-  --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  --focused-base-outline: 0.2rem solid rgb(var(--color-foreground));
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
@@ -799,13 +799,13 @@ summary::-webkit-details-marker {
 */
 
 .focus-inset:focus-visible {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline: 0.2rem solid rgb(var(--color-foreground));
   outline-offset: -0.2rem;
   box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
 }
 
 .focused.focus-inset {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline: 0.2rem solid rgb(var(--color-foreground));
   outline-offset: -0.2rem;
   box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
 }
@@ -1347,7 +1347,7 @@ button.shopify-payment-button__button--unbranded {
 .shopify-payment-button__button--unbranded:focus-visible,
 .shopify-payment-button__button--unbranded:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.5rem rgba(var(--color-foreground), 0.5),
+  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.5rem rgb(var(--color-foreground)),
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 

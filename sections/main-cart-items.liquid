@@ -250,6 +250,13 @@
                                 class="quantity-popover__info-button quantity-popover__info-button--icon-only button button--tertiary small-hide medium-hide"
                               >
                                 {{- 'icon-info.svg' | inline_asset_content -}}
+                                <span class="visually-hidden">
+                                  {%- if has_vol_pricing -%}
+                                    {{ 'products.product.volume_pricing.note' | t }}
+                                  {%- elsif has_qty_rules -%}
+                                    {{ 'products.product.quantity.note' | t }}
+                                  {%- endif -%}
+                                </span>
                               </button>
                             {%- endif -%}
                             {%- if is_single_quantity -%}

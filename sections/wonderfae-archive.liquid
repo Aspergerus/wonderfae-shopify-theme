@@ -159,6 +159,7 @@
                     {%- endif -%}
                     <a class="wonderfae-archive__product-link" href="{{ product.url }}">
                       <span>{{ section.settings.product_link_label | escape }}</span>
+                      <span class="visually-hidden"> — {{ product.title | escape }}</span>
                       <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                         <path d="M5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
                         <path d="m13 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>

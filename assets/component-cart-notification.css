@@ -63,6 +63,13 @@
   visibility: visible;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .cart-notification.animate,
+  .cart-notification.active {
+    transition: transform 0.01ms linear, visibility 0s;
+  }
+}
+
 .cart-notification__header {
   align-items: flex-start;
   display: flex;

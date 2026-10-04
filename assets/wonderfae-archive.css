@@ -5,7 +5,7 @@
   --wonderfae-archive-border: 1px solid rgb(182 138 74 / 34%);
   --wonderfae-archive-shadow: 0 1rem 2.6rem rgb(103 84 68 / 9%);
   --wonderfae-archive-forget-me-not: #6F96BE;
-  --wonderfae-archive-forget-me-not-deep: #547EA6;
+  --wonderfae-archive-forget-me-not-deep: #49677A;
 
   background:
     radial-gradient(circle at 20% 12%, rgb(248 241 226 / 48%) 0, transparent 33%),
@@ -161,14 +161,9 @@
     transform 300ms ease;
 }
 
-.wonderfae-archive__card--adopted {
-  opacity: 0.84;
-}
-
 .wonderfae-archive__card:hover,
 .wonderfae-archive__card:focus-within {
   box-shadow: 0 1.2rem 2.8rem rgb(103 84 68 / 12%);
-  opacity: 1;
   transform: translateY(-4px);
 }
 
@@ -195,8 +190,15 @@
   display: block;
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms ease;
+  transition:
+    opacity 300ms ease,
+    transform 700ms ease;
   width: 100%;
+}
+
+.wonderfae-archive__card--adopted .wonderfae-archive__image,
+.wonderfae-archive__card--adopted .wonderfae-archive__placeholder {
+  opacity: 0.84;
 }
 
 .wonderfae-archive__placeholder {
@@ -206,7 +208,13 @@
 
 .wonderfae-archive__card:hover .wonderfae-archive__image,
 .wonderfae-archive__card:focus-within .wonderfae-archive__image {
+  opacity: 1;
   transform: scale(1.03);
+}
+
+.wonderfae-archive__card:hover .wonderfae-archive__placeholder,
+.wonderfae-archive__card:focus-within .wonderfae-archive__placeholder {
+  opacity: 1;
 }
 
 .wonderfae-archive__card-body {
