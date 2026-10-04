@@ -19,6 +19,20 @@ cart-items .title-wrapper-with-link {
   display: flex;
 }
 
+.cart-item__quantity-value {
+  align-items: center;
+  color: rgb(var(--color-foreground));
+  display: inline-flex;
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  font-style: var(--font-body-style);
+  font-weight: 500;
+  justify-content: center;
+  line-height: 1;
+  min-height: 4.5rem;
+  min-width: calc(4.5rem / var(--font-body-scale));
+}
+
 .cart-item__totals {
   position: relative;
 }
