@@ -269,11 +269,16 @@
 }
 
 .wonderfae-archive__story {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   color: var(--wonderfae-archive-ink-soft);
+  display: -webkit-box;
   flex: 1;
   font-family: var(--wonderfae-archive-body-font);
   line-height: 1.6;
   margin: 0 0 1.45rem;
+  min-height: 3.2em;
+  overflow: hidden;
 }
 
 .wonderfae-archive__object {
