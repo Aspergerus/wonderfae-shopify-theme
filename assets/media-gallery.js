@@ -35,6 +35,9 @@ if (!customElements.get('media-gallery')) {
         if (!activeMedia) {
           return;
         }
+        const activeThumbnail = this.elements.thumbnails?.querySelector(
+          `[data-target="${activeMedia.dataset.mediaId}"]`
+        );
         this.elements.viewer.querySelectorAll('[data-media-id]').forEach((element) => {
           element.classList.remove('is-active');
         });
@@ -43,8 +46,7 @@ if (!customElements.get('media-gallery')) {
         if (prepend) {
           activeMedia.parentElement.firstChild !== activeMedia && activeMedia.parentElement.prepend(activeMedia);
 
-          if (this.elements.thumbnails) {
-            const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${mediaId}"]`);
+          if (activeThumbnail) {
             activeThumbnail.parentElement.firstChild !== activeThumbnail && activeThumbnail.parentElement.prepend(activeThumbnail);
           }
 
@@ -60,12 +62,12 @@ if (!customElements.get('media-gallery')) {
           // Don't scroll if the image is already in view
           if (activeMediaRect.top > -0.5) return;
           const top = activeMediaRect.top + window.scrollY;
-          window.scrollTo({ top: top, behavior: 'smooth' });
+          const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          window.scrollTo({ top, behavior: reduceMotion ? 'instant' : 'smooth' });
         });
         this.playActiveMedia(activeMedia);
 
-        if (!this.elements.thumbnails) return;
-        const activeThumbnail = this.elements.thumbnails.querySelector(`[data-target="${mediaId}"]`);
+        if (!activeThumbnail) return;
         this.setActiveThumbnail(activeThumbnail);
         this.announceLiveRegion(activeMedia, activeThumbnail.dataset.mediaPosition);
       }
