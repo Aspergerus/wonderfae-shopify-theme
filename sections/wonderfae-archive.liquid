@@ -77,6 +77,7 @@
           {%- liquid
             assign collection_label = product.metafields.custom.collection_label.value | default: product.type | default: product.vendor
             assign mouse_number = product.metafields.custom.mouse_number.value
+            assign mouse_number_prefix = mouse_number | slice: 0, 4 | downcase
             assign short_story = product.metafields.custom.short_story.value
             if short_story == blank
               assign short_story = product.description | strip_html | truncate: 145
@@ -139,7 +140,7 @@
                   <h3 class="wonderfae-archive__product-title">
                     <a href="{{ product.url }}">{{ product.title | escape }}</a>
                     {%- if section.settings.show_product_number and mouse_number != blank -%}
-                      <small>{{ 'No. ' | append: mouse_number | escape }}</small>
+                      <small>{% unless mouse_number_prefix == 'no. ' %}No. {% endunless %}{{ mouse_number | escape }}</small>
                     {%- endif -%}
                   </h3>
 
